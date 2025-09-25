@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg width="400"
+     height="600"
+     viewBox="0 0 400 600"
+     fill="none"
+     xmlns="http://www.w3.org/2000/svg">
+    <path id="gravyBorder1"
+          d="M30 50 C10 50, 10 90, 30 90 L350 90 C370 90, 370 50, 350 50 Z&#xA;             M340 70 L380 70 L380 110 C370 115, 360 110, 340 100 Z"
+          fill="#8B4513" />
+    <path id="gravyConnector1-2"
+          d="M375 95 C390 110, 390 140, 370 155 C350 170, 320 160, 300 170 L290 180 L280 170 C270 160, 270 140, 280 130 Z"
+          fill="#8B4513" />
+    <path id="gravyBorder2"
+          d="M30 200 C10 200, 10 240, 30 240 L350 240 C370 240, 370 200, 350 200 Z"
+          fill="#8B4513" />
+</svg>
