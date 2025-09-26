@@ -116,7 +116,7 @@ export function Contact() {
 				<button
 					type="submit"
 					disabled={isSubmitting}
-					className="bg-amber-900 text-white py-3 px-6 rounded-md font-medium hover:bg-amber-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+					className="bg-gradient-to-b from-amber-900 to-amber-500 text-white py-3 px-6 rounded-md font-medium hover:bg-amber-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
 				>
 					{isSubmitting ? 'Submitting...' : 'Submit'}
 				</button>

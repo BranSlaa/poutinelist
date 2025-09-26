@@ -42,6 +42,13 @@ export const poutines: Poutine[] = [
 			"Wendy's poutine is just okay. If they cooked the fries more, it would be better.",
 		location: "Wendy's",
 	},
+	{
+		name: "Legend's Poutine",
+		rating: 7.0,
+		description:
+			'This poutine was decent, good tasting gravy, not the warmest when it arrived, but overall good.',
+		location: "Legend's, St. Thomas, ON",
+	},
 ];
 
 // Sort poutines by rating (highest first)
