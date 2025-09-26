@@ -70,7 +70,7 @@ export function Contact() {
 				Do you know a great poutine?
 			</h2>
 			<p className="text-amber-900 mb-6">
-				If you give me the address, I'll take a trip to try it out and
+				If you give me the address, I&apos;ll take a trip to try it out and
 				add it to the list.
 			</p>
 
