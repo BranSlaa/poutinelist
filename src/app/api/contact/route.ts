@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
 			subject: `New Poutine Submission for ${restaurantName} via Poutine List`,
 			html: `
 				<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-					<h2 style="color: #059669; margin-bottom: 20px;">New Poutine Submission</h2>
+					<h2 style="color: #7f3103; margin-bottom: 20px;">New Poutine Submission</h2>
 					<div style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
 						<p style="margin: 10px 0;"><strong>Restaurant Name:</strong> ${restaurantName}</p>
 						<p style="margin: 10px 0;"><strong>Address:</strong> ${address}</p>
@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
 							handle || 'Anonymous'
 						}</p>
 						<p style="margin: 10px 0;"><strong>Description:</strong></p>
-						<div style="background-color: white; padding: 15px; border-radius: 4px; border-left: 4px solid #059669;">
+						<div style="background-color: white; padding: 15px; border-radius: 4px; border-left: 4px solid #7f3103;">
 							${description ? description.replace(/\n/g, '<br>') : 'No description provided'}
 						</div>
 					</div>
@@ -50,10 +50,9 @@ export async function POST(request: NextRequest) {
 			`,
 		});
 
-		console.log('Email sent successfully');
 
 		return NextResponse.json(
-			{ success: true, message: 'Email sent successfully' },
+			{ success: true, message: `Thanks for your submission! I'll check out ${restaurantName}'s poutine soon.` },
 			{ status: 200 },
 		);
 	} catch (error) {

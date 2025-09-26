@@ -14,6 +14,7 @@ export function Contact() {
 	const [submitStatus, setSubmitStatus] = useState<
 		'idle' | 'success' | 'error'
 	>('idle');
+	const [submitMessage, setSubmitMessage] = useState('');
 
 	const handleInputChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -44,6 +45,8 @@ export function Contact() {
 			if (!response.ok || !result.success) {
 				throw new Error(result.error || 'Failed to submit form');
 			}
+
+			setSubmitMessage(result.message);
 
 			// Reset form on success
 			setFormData({
@@ -121,6 +124,11 @@ export function Contact() {
 				{submitStatus === 'error' && (
 					<p className="text-red-700 font-medium">
 						Something went wrong. Please try again.
+					</p>
+				)}
+				{submitStatus === 'success' && (
+					<p className="text-green-700 font-bold">
+						{submitMessage}
 					</p>
 				)}
 			</form>

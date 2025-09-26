@@ -80,11 +80,13 @@ export default function Home() {
 						</div>
 					</div>
 				</motion.div>
-				<div className="container mx-auto flex flex-col items-center mt-8 px-4">
+				<div className="container mx-auto flex flex-col items-center mt-8 px-4 overflow-hidden">
 					<h3 className="text-2xl font-bold text-amber-800 mb-6 text-center lg:text-left">
 						Poutines List
 					</h3>
+					<div className="overflow-x-auto px-4">
 					<PoutineTable poutines={otherPoutines} />
+					</div>
 				</div>
 			</div>
 
