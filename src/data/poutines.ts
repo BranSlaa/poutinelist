@@ -2,32 +2,44 @@ import { Poutine } from '@/types/poutine';
 
 export const poutines: Poutine[] = [
 	{
-		name: 'Brisket Poutine',
+		name: 'Loaded Brisket Poutine',
 		rating: 9.5,
-		image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjRkZENzAwIi8+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjRkZEMDAwIi8+CjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRkZGRkZGIi8+CjxyZWN0IHg9IjI1IiB5PSIzMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjOEE0NDQ0Ii8+Cjwvc3ZnPgo=',
 		description: 'Slow-smoked brisket on classic poutine',
 		location: 'Smoking Caboose, St. Thomas, ON',
 	},
 	{
 		name: 'Buffalo Chicken Poutine',
 		rating: 9.0,
-		image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjRkZENzAwIi8+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjRkZEMDAwIi8+CjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRkZGRkZGIi8+CjxyZWN0IHg9IjI1IiB5PSIzMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjRkY2NjAwIi8+Cjwvc3ZnPgo=',
-		description: 'Spicy buffalo chicken with cheese curds and gravy',
+		description:
+			"Spicy buffalo chicken with cheese curds and gravy. It can depend on who makes it, so sometimes it's better to ask for less sauce if you know your local joint.",
 		location: "Harvey's",
 	},
 	{
 		name: 'Banff Poutine',
 		rating: 10.0,
-		image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjRkZENzAwIi8+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjRkZEMDAwIi8+CjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRkZGRkZGIi8+CjxyZWN0IHg9IjI1IiB5PSIzMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjRkZGRkZGIi8+Cjwvc3ZnPgo=',
-		description: 'Perfect poutine with premium ingredients',
+		description:
+			'A Perfect poutine made by a true Quebecean. A thin mushroom gravy, perfect cheese curds, and amazingly crispy fries. I almost bought a second one.',
 		location: 'Banff, AB',
 	},
 	{
-		name: 'Rise to Fries Poutine',
-		rating: 3.0,
-		image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjRkZENzAwIi8+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjRkZEMDAwIi8+CjxyZWN0IHg9IjIwIiB5PSIyMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBmaWxsPSIjRkZGRkZGIi8+CjxyZWN0IHg9IjI1IiB5PSIzMCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjQ0M2NjMzIi8+Cjwvc3ZnPgo=',
-		description: 'Basic poutine that needs improvement',
+		name: 'Rise to Fries Pulled Pork Poutine Supreme',
+		rating: 2.5,
+		description:
+			'The crispy onions were good, but the rest meh. The fries were undercooked and the meat came with too much liquid.',
 		location: 'Rise to Fries, Barrie, ON',
+	},
+	{
+		name: 'McDonalds Poutine',
+		rating: 5.0,
+		description: 'McDonalds poutine is what you expect from them.',
+		location: 'McDonalds',
+	},
+	{
+		name: "Wendy's Poutine",
+		rating: 4.0,
+		description:
+			"Wendy's poutine is just okay. If they cooked the fries more, it would be better.",
+		location: "Wendy's",
 	},
 ];
 

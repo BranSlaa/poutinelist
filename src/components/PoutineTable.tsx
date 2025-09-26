@@ -1,21 +1,37 @@
 import { Poutine } from '@/types/poutine';
+import { StarRating } from '@/components/ui/stars';
 
 export function PoutineTable({ poutines }: { poutines: Poutine[] }) {
 	return (
-		<table>
+		<table className="table-auto w-full bg-white rounded-lg p-4 text-amber-950 shadow-lg">
 			<thead>
-				<tr>
-					<th>Rank</th>
-					<th>Name</th>
-					<th>Rating</th>
+				<tr className="text-left">
+					<th className="py-2 px-4 text-center">Rank</th>
+					<th className="py-2 px-4">Name</th>
+					<th className="py-2 px-4">Comments</th>
+					<th className="py-2 px-4">Location</th>
+					<th className="py-2 px-4">Rating</th>
 				</tr>
 			</thead>
 			<tbody>
 				{poutines.map((poutine, index) => (
 					<tr key={index}>
-						<td>{index + 5}</td>
-						<td>{poutine.name}</td>
-						<td>{poutine.rating}</td>
+						<td className="py-2 px-4 text-center align-top">
+							<span className="rounded-full bg-amber-900 text-white px-2 py-1">
+								{index + 5}
+							</span>
+						</td>
+						<td className="py-2 px-4 align-top">{poutine.name}</td>
+						<td className="py-2 px-4">{poutine.description}</td>
+						<td className="py-2 px-4 align-top">
+							{poutine.location}
+						</td>
+						<td className="py-2 px-4 align-top">
+							<StarRating
+								rating={poutine.rating}
+								className="flex-col"
+							/>
+						</td>
 					</tr>
 				))}
 			</tbody>

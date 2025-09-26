@@ -9,8 +9,8 @@ export function Navigation() {
 					<Image
 						src="/PoutineListLogo.webp"
 						alt="Poutine List Logo"
-						width={447}
-						height={96}
+						width={300}
+						height={64}
 					/>
 				</Link>
 			</div>
