@@ -4,7 +4,8 @@ export const poutines: Poutine[] = [
 	{
 		name: 'Loaded Brisket Poutine',
 		rating: 9.5,
-		description: 'Slow-smoked brisket on classic poutine',
+		description:
+			'Slow-smoked brisket on classic poutine. Was amazing, but I would have preferred larger chunks of brisket like their little bites, over shaved brisket.',
 		location: 'Smoking Caboose, St. Thomas, ON',
 	},
 	{
