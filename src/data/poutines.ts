@@ -9,7 +9,7 @@ export const poutines: Poutine[] = [
 	},
 	{
 		name: 'Buffalo Chicken Poutine',
-		rating: 9.0,
+		rating: 8.0,
 		description:
 			"Spicy buffalo chicken with cheese curds and gravy. It can depend on who makes it, so sometimes it's better to ask for less sauce if you know your local joint.",
 		location: "Harvey's",

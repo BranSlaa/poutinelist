@@ -47,18 +47,18 @@ body {
 		.fry-image {
 			top: 33px;
 			left: -56px;
-			transform: scale(1.1, 1.1);
+			transform: scale(1.1, 1.1) !important;
 		}
 		
 	}
 	&:nth-of-type(3) {
 		margin-bottom: 28px;
-		transform: translateY(7px);
+		transform: translateY(7px) !important;
 		
 		.fry-image {
 			top: 31px;
 			left: -56px;
-			transform: scale(-1.2, 1.2);
+			transform: scale(-1.2, 1.2) !important;
 		}
 	}
 
@@ -68,8 +68,18 @@ body {
 		.fry-image {
 			top: 30px;
 			left: -56px;
-			transform: scale(1.5);
+			transform: scale(1.6) !important;
 			z-index: -1;
+		}
+	}
+}
+
+table {
+	tbody {
+		tr{
+			&:nth-of-type(even) {
+				background-color: #f0f0f0;
+			}
 		}
 	}
 }

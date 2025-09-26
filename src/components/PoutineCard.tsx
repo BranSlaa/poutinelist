@@ -1,6 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import { Poutine } from '@/types/poutine';
 import { StarRating } from '@/components/ui/stars';
+import { motion } from 'framer-motion';
 
 interface PoutineCardProps {
 	poutine: Poutine;
@@ -11,7 +14,13 @@ interface PoutineCardProps {
 export function PoutineCard({ poutine, rank }: PoutineCardProps) {
 	return (
 		<div className="gravy-frame bg-amber-50 rounded-lg relative  transition-shadow duration-300">
-			<div className="fry-image absolute">
+			<motion.div
+				className="fry-image absolute"
+				initial={{ opacity: 0, x: 10 }}
+				animate={{ opacity: 1, x: 0 }}
+				exit={{ opacity: 0, x: -10 }}
+				transition={{ duration: 0.5 }}
+			>
 				<Image
 					src="/fry.webp"
 					alt="Fry"
@@ -19,9 +28,15 @@ export function PoutineCard({ poutine, rank }: PoutineCardProps) {
 					height={100}
 					className="object-contain"
 				/>
-			</div>
-			<div className="relative p-2 z-10 flex items-center gap-3 bg-amber-50">
-				<div className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center overflow-hidden border-2 border-amber-200 text-amber-700 font-bold text-2xl">
+			</motion.div>
+			<motion.div
+				className="relative p-2 z-10 flex items-center gap-3 bg-amber-50"
+				initial={{ opacity: 0, y: 10 }}
+				animate={{ opacity: 1, y: 0 }}
+				exit={{ opacity: 0, y: -10 }}
+				transition={{ duration: 0.5 }}
+			>
+				<div className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center overflow-hidden border-2 border-amber-700 text-amber-700 font-bold text-2xl">
 					{rank}
 				</div>
 				<div className="flex-1">
@@ -40,7 +55,7 @@ export function PoutineCard({ poutine, rank }: PoutineCardProps) {
 						</p>
 					)}
 				</div>
-			</div>
+			</motion.div>
 		</div>
 	);
 }

@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 export function Navigation() {
 	return (
-		<nav className="text-amber-900 p-4">
-			<div className="max-w-7xl mx-auto flex justify-between items-center">
+		<nav className="container mx-auto text-amber-900 p-4">
+			<div className=" flex justify-between items-center">
 				<Link href="/" className="">
 					<Image
 						src="/PoutineListLogo.webp"

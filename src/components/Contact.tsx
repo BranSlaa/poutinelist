@@ -8,7 +8,7 @@ export function Contact() {
 		address: '',
 		restaurantName: '',
 		description: '',
-		email: '',
+		handle: '',
 	});
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [submitStatus, setSubmitStatus] = useState<
@@ -39,7 +39,7 @@ export function Contact() {
 				address: '',
 				restaurantName: '',
 				description: '',
-				email: '',
+				handle: '',
 			});
 			setSubmitStatus('success');
 		} catch (error) {
@@ -82,10 +82,10 @@ export function Contact() {
 				/>
 
 				<Input
-					type="email"
-					name="email"
-					placeholder="Your email (optional)"
-					value={formData.email}
+					type="text"
+					name="handle"
+					placeholder="Your name or social media handle (optional)"
+					value={formData.handle}
 					onChange={handleInputChange}
 				/>
 
@@ -108,7 +108,8 @@ export function Contact() {
 
 				{submitStatus === 'success' && (
 					<p className="text-green-700 font-medium">
-						Thanks! I'll check out that poutine soon.
+						Thanks! I'll check out {formData.restaurantName}'s
+						poutine soon.
 					</p>
 				)}
 

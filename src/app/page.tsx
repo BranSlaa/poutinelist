@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import { PoutineCard } from '@/components/PoutineCard';
 import { Navigation } from '@/components/Navigation';
@@ -6,15 +8,21 @@ import { topPoutines, otherPoutines } from '@/data/poutines';
 import { PoutineTable } from '@/components/PoutineTable';
 import Link from 'next/link';
 import { Contact } from '@/components/Contact';
-
+import { motion } from 'framer-motion';
 export default function Home() {
 	return (
-		<div className="min-h-screen bg-amber-50">
+		<div className="min-h-screen bg-amber-50 min-w-[512px]">
 			<Navigation />
 			<div className="relative">
-				<div className="container max-w-4xl mx-auto relative z-20 grid grid-cols-1 md:grid-cols-[1fr_auto] px-4">
+				<motion.div
+					className="container mx-auto relative z-20 grid grid-cols-1 md:grid-cols-[1fr_auto] px-4"
+					initial={{ opacity: 0, y: 10 }}
+					animate={{ opacity: 1, y: 0 }}
+					exit={{ opacity: 0, y: -10 }}
+					transition={{ duration: 0.5 }}
+				>
 					{/* Header */}
-					<div className="my-12">
+					<div className="my-8">
 						<h1 className="sr-only">Poutine List</h1>
 						<h2 className="text-4xl font-bold text-amber-900 mb-4">
 							A ranked list of the best poutines in Canada... that
@@ -22,8 +30,9 @@ export default function Home() {
 						</h2>
 						<p className="text-xl text-amber-900 mb-8">
 							This list is not exhaustive, but it is a list of
-							poutines that I have tried and enjoyed. Do you have
-							a poutine that you think should be on this list?{' '}
+							poutines that I have tried and hopefully enjoyed. Do
+							you have a poutine that you think should be on this
+							list?{' '}
 							<Link
 								href="#submit-poutine"
 								className="text-orange-700 font-bold underline"
@@ -38,7 +47,7 @@ export default function Home() {
 								alt="Poutine bowl"
 								width={646}
 								height={710}
-								className="max-w-[300px]"
+								className="max-w-[300px] mx-auto"
 							/>
 						</div>
 					</div>
@@ -70,10 +79,10 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-				</div>
-				<div className="container mx-auto flex flex-col items-center ">
+				</motion.div>
+				<div className="container mx-auto flex flex-col items-center mt-8 px-4">
 					<h3 className="text-2xl font-bold text-amber-800 mb-6 text-center lg:text-left">
-						Other Poutines
+						Poutines List
 					</h3>
 					<PoutineTable poutines={otherPoutines} />
 				</div>

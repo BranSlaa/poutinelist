@@ -3,8 +3,8 @@ import { StarRating } from '@/components/ui/stars';
 
 export function PoutineTable({ poutines }: { poutines: Poutine[] }) {
 	return (
-		<table className="table-auto w-full bg-white rounded-lg p-4 text-amber-950 shadow-lg">
-			<thead>
+		<table className="table-auto w-full bg-white rounded-lg p-4 text-amber-950 shadow-lg overflow-x-auto max-w-screen border-2 border-amber-900">
+			<thead className="border-b border-amber-900">
 				<tr className="text-left">
 					<th className="py-2 px-4 text-center">Rank</th>
 					<th className="py-2 px-4">Name</th>
