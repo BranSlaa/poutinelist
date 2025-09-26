@@ -16,7 +16,7 @@ export function Contact() {
 	>('idle');
 
 	const handleInputChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
 	) => {
 		const { name, value } = e.target;
 		setFormData(prev => ({
@@ -31,8 +31,19 @@ export function Contact() {
 		setSubmitStatus('idle');
 
 		try {
-			// Simulate form submission - replace with actual API call
-			await new Promise(resolve => setTimeout(resolve, 1000));
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			});
+
+			const result = await response.json();
+
+			if (!response.ok || !result.success) {
+				throw new Error(result.error || 'Failed to submit form');
+			}
 
 			// Reset form on success
 			setFormData({
@@ -43,6 +54,7 @@ export function Contact() {
 			});
 			setSubmitStatus('success');
 		} catch (error) {
+			console.error('Form submission error:', error);
 			setSubmitStatus('error');
 		} finally {
 			setIsSubmitting(false);
@@ -50,7 +62,7 @@ export function Contact() {
 	};
 
 	return (
-		<div id="submit-poutine" className="bg-white/50 text-center">
+		<div id="submit-poutine" className="text-center">
 			<h2 className="text-4xl font-bold text-amber-900 mb-2">
 				Do you know a great poutine?
 			</h2>
@@ -105,13 +117,6 @@ export function Contact() {
 				>
 					{isSubmitting ? 'Submitting...' : 'Submit'}
 				</button>
-
-				{submitStatus === 'success' && (
-					<p className="text-green-700 font-medium">
-						Thanks! I'll check out {formData.restaurantName}'s
-						poutine soon.
-					</p>
-				)}
 
 				{submitStatus === 'error' && (
 					<p className="text-red-700 font-medium">

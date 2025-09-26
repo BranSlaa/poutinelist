@@ -16,17 +16,15 @@ export function PoutineTable({ poutines }: { poutines: Poutine[] }) {
 			<tbody>
 				{poutines.map((poutine, index) => (
 					<tr key={index}>
-						<td className="py-2 px-4 text-center align-top">
+						<td className="py-2 px-4 text-center">
 							<span className="rounded-full bg-amber-900 text-white px-2 py-1">
 								{index + 5}
 							</span>
 						</td>
-						<td className="py-2 px-4 align-top">{poutine.name}</td>
+						<td className="py-2 px-4">{poutine.name}</td>
 						<td className="py-2 px-4">{poutine.description}</td>
-						<td className="py-2 px-4 align-top">
-							{poutine.location}
-						</td>
-						<td className="py-2 px-4 align-top">
+						<td className="py-2 px-4">{poutine.location}</td>
+						<td className="py-2 px-4">
 							<StarRating
 								rating={poutine.rating}
 								className="flex-col"

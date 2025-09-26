@@ -15,7 +15,7 @@ export default function Home() {
 			<Navigation />
 			<div className="relative">
 				<motion.div
-					className="container mx-auto relative z-20 grid grid-cols-1 md:grid-cols-[1fr_auto] px-4"
+					className="container max-w-5xl mx-auto relative z-20 grid grid-cols-1 md:grid-cols-[1fr_auto] px-4"
 					initial={{ opacity: 0, y: 10 }}
 					animate={{ opacity: 1, y: 0 }}
 					exit={{ opacity: 0, y: -10 }}
