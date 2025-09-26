@@ -41,7 +41,7 @@ export default function Home() {
 							</Link>
 							.
 						</p>
-						<div className="flex-1 flex  mt-12">
+						<div className="flex-1 flex">
 							<Image
 								src="/poutine.webp"
 								alt="Poutine bowl"
