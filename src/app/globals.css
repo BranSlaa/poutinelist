@@ -8,8 +8,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-titan-one: var(--font-titan-one);
+  --font-montserrat: var(--font-montserrat);
+  --font-sans: var(--font-montserrat);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,11 +23,15 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-montserrat);
+  background-image: url(/image-tile-bg.png);
+  background-size: 500px 500px;
+  background-position: 0 0;
+  background-repeat: repeat;
 }
 
 .gravy-frame {
-	min-width: 317px;
+	width: 312px;
 	&:nth-of-type(1) {
 		margin-bottom: 27px;
 
@@ -74,12 +79,6 @@ body {
 	}
 }
 
-table {
-	tbody {
-		tr{
-			&:nth-of-type(even) {
-				background-color: #f0f0f0;
-			}
-		}
-	}
+.plaid {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAABoklEQVR4AeyZQarCQBBEm9m4/vt/EDFIIHgX7+INPIg7EYLoSdx7hGgFhBBcOvUEezXMqql+Vd1mLIfFYrhuNgNx7rtuiIhBp+rrrH0vf+t13M/ncJ+3pont6RRPkfF/uYTrXgixai4hVs3FCKu4k+yrHkaYEKvYYIRVnLA1RpgQK1tjhFWcsDVGmBCrGGGEVZywNUaYEKsYYYRVnLA1RpgQqxhhhFWcsDVGmBCrGGGEVZywNUaYEHtrmsAIZ4ZNjwEY4cyw6ZkHI5wZzgx3VV4zcw/rCdXxdJsZzgxnhj/yd8zv7eHV8Th2ToNKg8R11/dw27bjH2q75XI8HfdC/aaVuL7vw30W6ruUEKvmFtlY9nKTVnG/6D4KIVbNJcSqyZlhV6Yxwplh029ajLAGiMvG0wGpAUKIzj3syjRGeGozl1jFiLCzmpx72DXAMMJOG0+bKXsRovO3tAbKlEStO0bYIe5dbAg7q8n5Pezaywjh5xta7mFXpjHC7waKw9YaIITo3MO19u7cSRhhV2bnMSHsrCbnHp6TqHXHCLsy+y0ZfgAAAP//jXaxIgAAAAZJREFUAwB+uTNWgW7orwAAAABJRU5ErkJggg==);
 }

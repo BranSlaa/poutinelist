@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function Footer() {
 	return (
-		<footer className="border-t border-amber-700 bg-amber-900 text-white py-8 px-8">
+		<footer className="plaid border-t border-amber-700 bg-amber-900 text-white py-8 px-8">
 			<div className="text-center text-amber-200">
 				<p>
 					&copy; {new Date().getFullYear()} PoutineList. Made with ❤️

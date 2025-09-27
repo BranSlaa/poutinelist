@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Instagram } from 'lucide-react';
 
 export function Navigation() {
 	return (
@@ -11,7 +12,14 @@ export function Navigation() {
 						alt="Poutine List Logo"
 						width={300}
 						height={64}
+						className="max-w-1/2"
 					/>
+				</Link>
+				<Link
+					href="https://www.instagram.com/PoutineList/"
+					target="_blank"
+				>
+					<Instagram className="w-6 h-6" />
 				</Link>
 			</div>
 		</nav>

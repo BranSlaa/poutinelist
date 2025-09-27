@@ -18,6 +18,7 @@ export const poutines: Poutine[] = [
 	{
 		name: 'Banff Poutine',
 		rating: 10.0,
+		image_url: '/banff-poutine.webp',
 		description:
 			'A Perfect poutine made by a true Quebecean. A thin mushroom gravy, perfect cheese curds, and amazingly crispy fries. I almost bought a second one.',
 		location: 'Banff, AB',
@@ -54,7 +55,11 @@ export const poutines: Poutine[] = [
 // Sort poutines by rating (highest first)
 export const sortedPoutines = [...poutines].sort((a, b) => b.rating - a.rating);
 
-// Get top 4 poutines for the homepage
-export const topPoutines = sortedPoutines.slice(0, 4);
+// Get top poutine
+export const topPoutine = sortedPoutines[0];
 
-export const otherPoutines = sortedPoutines.slice(4);
+// Get top 4 poutines
+export const topPoutines = sortedPoutines.slice(1, 5);
+
+// Get other poutines
+export const otherPoutines = sortedPoutines.slice(5);

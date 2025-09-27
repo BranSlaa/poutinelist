@@ -4,88 +4,106 @@ import Image from 'next/image';
 import { PoutineCard } from '@/components/PoutineCard';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
-import { topPoutines, otherPoutines } from '@/data/poutines';
+import { topPoutine, topPoutines, otherPoutines } from '@/data/poutines';
 import { PoutineTable } from '@/components/PoutineTable';
 import Link from 'next/link';
 import { Contact } from '@/components/Contact';
 import { motion } from 'framer-motion';
+import { TopPoutineCard } from '@/components/TopPoutineCard';
+
 export default function Home() {
 	return (
-		<div className="min-h-screen bg-amber-50 min-w-[512px]">
+		<div className="min-h-screen bg-amber-50/90 overflow-x-hidden">
 			<Navigation />
-			<div className="relative">
+			<div className="relative pt-16">
 				<motion.div
-					className="container max-w-5xl mx-auto relative z-20 grid grid-cols-1 md:grid-cols-[1fr_auto] px-4"
+					className="container max-w-5xl mx-auto relative z-20 grid grid-cols-1 md:grid-cols-2 px-4 gap-12"
 					initial={{ opacity: 0, y: 10 }}
 					animate={{ opacity: 1, y: 0 }}
 					exit={{ opacity: 0, y: -10 }}
 					transition={{ duration: 0.5 }}
 				>
 					{/* Header */}
-					<div className="my-8">
+					<div className="">
 						<h1 className="sr-only">Poutine List</h1>
-						<h2 className="text-4xl font-bold text-amber-900 mb-4">
-							A ranked list of the best poutines in Canada... that
-							I have tried!
+						<h2 className="text-4xl text-amber-900 mb-4 font-titan-one">
+							The Definitive Poutine Ranking: A Quest for
+							Canada&apos;s Best.
 						</h2>
 						<p className="text-xl text-amber-900 mb-8">
-							This list is not exhaustive, but it is a list of
-							poutines that I have tried and hopefully enjoyed. Do
-							you have a poutine that you think should be on this
-							list?{' '}
-							<Link
-								href="#submit-poutine"
-								className="text-orange-700 font-bold underline"
-							>
-								Submit it here
-							</Link>
-							.
+							Every poutine here has been personally tested and
+							rigorously scored using our detailed criteria for
+							Fries, Gravy, and Curds. This list is my evolving
+							quest to find the perfect bowl.
 						</p>
-						<div className="flex-1 flex">
-							<Image
-								src="/poutine.webp"
-								alt="Poutine bowl"
-								width={646}
-								height={710}
-								className="max-w-[300px] mx-auto"
-							/>
-						</div>
+						<p className="text-xl text-amber-900 mb-4">
+							Do you know a great poutine I need to try?
+						</p>
+						<Link
+							href="#submit-poutine"
+							className="block w-fit bg-gradient-to-b from-amber-400 to-amber-500 text-amber-950 py-3 px-6 rounded-md font-medium hover:bg-amber-500 transition-colors"
+						>
+							Submit a Poutine for Review.
+						</Link>
+					</div>
+					<div className="relative flex items-center justify-center">
+						<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 plaid rounded-full aspect-square w-[400px] max-w-full mx-auto border-2 border-black"></div>
+						<Image
+							src="/poutine.webp"
+							alt="Poutine bowl"
+							width={646}
+							height={710}
+							className="max-w-[300px] mx-auto relative z-10"
+						/>
+					</div>
+				</motion.div>
+				{/* Main content with poutine bowl and rankings */}
+				<div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-x-8 gap-y-4 max-w-7xl mx-auto mt-24">
+					<h3 className="relative w-fit mx-auto text-2xl font-bold text-center lg:text-left mb-4 md:col-span-2">
+						<Image
+							src="/gravy-splat-text-frame.svg"
+							alt="Gravy Splat effect"
+							width={526}
+							height={130}
+							className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[333px] h-auto object-contain max-w-[initial]"
+						/>
+						<span className="text-white relative z-10">
+							Poutine Hall of Fame
+						</span>
+					</h3>
+
+					<div className="flex-1 flex flex-col items-center md:items-end mb-4">
+						<TopPoutineCard poutine={topPoutine} />
 					</div>
 
-					{/* Main content with poutine bowl and rankings */}
-					<div className="flex flex-col items-center gap-4 max-w-7xl mx-auto">
-						<h3 className="text-2xl font-bold text-amber-800 text-center lg:text-left">
-							Top Poutines
-						</h3>
-						{/* Gravy Frame Container */}
-						<div className="relative w-full max-w-md mx-auto">
+					{/* Gravy Frame Container */}
+					<div className="flex justify-center md:justify-start relative transform -translate-x-[15px] md:translate-x-0 flex-1">
+						{/* Poutine rankings positioned within frame */}
+						<div className="relative z-10 pt-[10px] pr-[21px] pb-[23px] pl-[64px]">
 							{/* Responsive SVG Frame */}
 							<Image
 								src="/4-gravy-frame.svg"
 								alt="Gravy Frame"
 								width={409}
 								height={509}
-								className="absolute inset-0 w-full h-full object-contain z-20"
+								className="absolute inset-0 w-auto h-full object-contain z-20"
 							/>
-							{/* Poutine rankings positioned within frame */}
-							<div className="relative z-10 pt-[10px] pb-[23px] pl-[75px] pr-[21px]">
-								{topPoutines.map((poutine, index) => (
-									<PoutineCard
-										key={index}
-										poutine={poutine}
-										rank={index + 1}
-									/>
-								))}
-							</div>
+							{topPoutines.map((poutine, index) => (
+								<PoutineCard
+									key={index}
+									poutine={poutine}
+									rank={index + 2}
+								/>
+							))}
 						</div>
 					</div>
-				</motion.div>
+				</div>
 				<div className="container mx-auto flex flex-col items-center mt-8 px-4 overflow-hidden">
 					<h3 className="text-2xl font-bold text-amber-800 mb-6 text-center lg:text-left">
 						Poutines List
 					</h3>
 					<div className="overflow-x-auto px-4">
-					<PoutineTable poutines={otherPoutines} />
+						<PoutineTable poutines={otherPoutines} />
 					</div>
 				</div>
 			</div>

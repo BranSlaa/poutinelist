@@ -17,7 +17,7 @@ export function Contact() {
 	const [submitMessage, setSubmitMessage] = useState('');
 
 	const handleInputChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	) => {
 		const { name, value } = e.target;
 		setFormData(prev => ({
@@ -65,73 +65,75 @@ export function Contact() {
 	};
 
 	return (
-		<div id="submit-poutine" className="text-center">
+		<div id="submit-poutine" className="text-center pt-16">
 			<h2 className="text-4xl font-bold text-amber-900 mb-2">
-				Do you know a great poutine?
+				Do you know of a great poutine?
 			</h2>
 			<p className="text-amber-900 mb-6">
-				If you give me the address, I&apos;ll take a trip to try it out and
-				add it to the list.
+				If you give me the address, I&apos;ll take a trip to try it out
+				and add it to the list.
 			</p>
 
-			<form
-				onSubmit={handleSubmit}
-				className="flex flex-col gap-4 max-w-md bg-amber-500/25 p-8 rounded-lg mx-auto"
-			>
-				<Input
-					type="text"
-					name="restaurantName"
-					placeholder="Restaurant name"
-					value={formData.restaurantName}
-					onChange={handleInputChange}
-					required
-				/>
-
-				<Input
-					type="text"
-					name="address"
-					placeholder="Address"
-					value={formData.address}
-					onChange={handleInputChange}
-					required
-				/>
-
-				<Input
-					type="text"
-					name="handle"
-					placeholder="Your name or social media handle (optional)"
-					value={formData.handle}
-					onChange={handleInputChange}
-				/>
-
-				<textarea
-					name="description"
-					placeholder="Tell me about this poutine (optional)"
-					value={formData.description}
-					onChange={handleInputChange}
-					rows={3}
-					className="bg-white text-amber-950 rounded-md p-3 border-0 focus:outline-none focus:ring-2 focus:ring-amber-700 resize-none placeholder:text-amber-900/50"
-				/>
-
-				<button
-					type="submit"
-					disabled={isSubmitting}
-					className="bg-gradient-to-b from-amber-900 to-amber-500 text-white py-3 px-6 rounded-md font-medium hover:bg-amber-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+			<div className="max-w-md bg-white mx-auto rounded-lg">
+				<form
+					onSubmit={handleSubmit}
+					className="flex flex-col gap-4 bg-amber-500/25 p-8"
 				>
-					{isSubmitting ? 'Submitting...' : 'Submit'}
-				</button>
+					<Input
+						type="text"
+						name="restaurantName"
+						placeholder="Restaurant name"
+						value={formData.restaurantName}
+						onChange={handleInputChange}
+						required
+					/>
 
-				{submitStatus === 'error' && (
-					<p className="text-red-700 font-medium">
-						Something went wrong. Please try again.
-					</p>
-				)}
-				{submitStatus === 'success' && (
-					<p className="text-green-700 font-bold">
-						{submitMessage}
-					</p>
-				)}
-			</form>
+					<Input
+						type="text"
+						name="address"
+						placeholder="Address"
+						value={formData.address}
+						onChange={handleInputChange}
+						required
+					/>
+
+					<Input
+						type="text"
+						name="handle"
+						placeholder="Your name or social media handle (optional)"
+						value={formData.handle}
+						onChange={handleInputChange}
+					/>
+
+					<textarea
+						name="description"
+						placeholder="Tell me about this poutine (optional)"
+						value={formData.description}
+						onChange={handleInputChange}
+						rows={3}
+						className="bg-white text-amber-950 rounded-md p-3 border-0 focus:outline-none focus:ring-2 focus:ring-amber-700 resize-none placeholder:text-amber-900/50"
+					/>
+
+					<button
+						type="submit"
+						disabled={isSubmitting}
+						className="bg-gradient-to-b from-amber-400 to-amber-500 text-amber-950 py-3 px-6 rounded-md font-medium hover:bg-amber-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+					>
+						{isSubmitting ? 'Submitting...' : 'Submit'}
+					</button>
+
+					{submitStatus === 'error' && (
+						<p className="text-red-700 font-medium">
+							Something went wrong. Please try again.
+						</p>
+					)}
+					{submitStatus === 'success' && (
+						<p className="text-green-700 font-bold">
+							{submitMessage}
+						</p>
+					)}
+				</form>
+			</div>
 		</div>
 	);
 }
