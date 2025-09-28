@@ -1,9 +1,10 @@
 'use client';
 
-import { Poutine, PoutineRanking } from '@/types/poutine';
+import { Poutine } from '@/types/poutine';
 import { StarRating } from '@/components/ui/stars';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import Image from 'next/image';
 
 interface PoutineModalProps {
 	poutine: Poutine | null;
@@ -134,9 +135,11 @@ export function PoutineModal({ poutine, isOpen, onClose }: PoutineModalProps) {
 										Photo
 									</h3>
 									<div className="relative w-full h-64 rounded-lg overflow-hidden">
-										<img
+										<Image
 											src={poutine.image_url}
 											alt={poutine.name}
+											width={100}
+											height={100}
 											className="w-full h-full object-cover"
 										/>
 									</div>

@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { Poutine } from '@/types/poutine';
 import { StarRating } from '@/components/ui/stars';
-import { motion } from 'framer-motion';
 
 interface TopPoutineCardProps {
 	poutine: Poutine;

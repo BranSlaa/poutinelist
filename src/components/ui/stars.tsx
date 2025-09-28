@@ -1,4 +1,4 @@
-import { Poutine, PoutineRating } from '@/types/poutine';
+import { Poutine } from '@/types/poutine';
 import { getPoutineOverallRating } from '@/utils/ratingCalculator';
 
 interface StarProps {
