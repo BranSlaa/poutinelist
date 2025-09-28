@@ -7,11 +7,15 @@ import { motion } from 'framer-motion';
 
 interface TopPoutineCardProps {
 	poutine: Poutine;
+	onClick?: (poutine: Poutine) => void;
 }
 
-export function TopPoutineCard({ poutine }: TopPoutineCardProps) {
+export function TopPoutineCard({ poutine, onClick }: TopPoutineCardProps) {
 	return (
-		<div className="rounded-lg relative transition-shadow duration-300 pt-4 pr-[25px] pb-4 pl-[85px] transform -translate-x-[30px] md:translate-x-0">
+		<div
+			className="rounded-lg relative transition-shadow duration-300 pt-4 pr-[25px] pb-4 pl-[85px] transform -translate-x-[30px] md:translate-x-0 cursor-pointer group"
+			onClick={() => onClick?.(poutine)}
+		>
 			<Image
 				src="/gravyframe.svg"
 				alt="Gravy Frame"
@@ -28,29 +32,29 @@ export function TopPoutineCard({ poutine }: TopPoutineCardProps) {
 					className="object-contain"
 				/>
 			</div>
-			<div className="flex items-center gap-2 absolute bottom-[40px] md:bottom-[70px] left-18 md:left-4 z-20">
+			<div className="flex items-center gap-2 absolute bottom-[75px] md:bottom-[70px] left-20 md:left-4 z-20">
 				<span className="bg-amber-100 text-amber-700 border-2 border-amber-700 rounded-full px-2 py-1 font-bold h-12 w-12 flex items-center justify-center text-2xl">
 					#1
 				</span>
 			</div>
-			<div className="relative z-10 flex flex-col items-center bg-white min-w-[270px]">
+			<div className="relative z-10 flex flex-col  bg-white min-w-[270px] group-hover:bg-amber-100">
 				{poutine.image_url && (
 					<Image
 						src={poutine.image_url}
 						alt={poutine.name}
 						width={100}
 						height={100}
-						className="object-cover max-h-[285px] w-[calc(100%+10px)] max-w-[calc(100%+10px)] transform -translate-x-[4px] rounded-t"
+						className="object-cover max-h-[285px] w-[calc(100%+10px)] max-w-[calc(100%+10px)] transform -translate-x-[4px] rounded-t-lg"
 					/>
 				)}
 
 				<div className="flex-1">
 					<div className="flex flex-col py-2 px-4">
 						<div className="flex flex-col">
-							<div className="flex items-center gap-2">
-								<StarRating rating={poutine.rating} />
+							<div className="flex items-center gap-2 pl-8 md:pl-0">
+								<StarRating poutine={poutine} />
 							</div>
-							<h3 className="text-amber-900 font-bold text-lg">
+							<h3 className="text-amber-900 text-lg font-titan-one">
 								{poutine.name}
 							</h3>
 						</div>

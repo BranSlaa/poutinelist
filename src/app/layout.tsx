@@ -14,9 +14,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-	title: 'Poutine List',
-	description:
-		'A ranked list of the best poutines in Canada... that I have tried!',
+	title: 'Poutine List - The Definitive Poutine Ranking',
+	description: "The Definitive Poutine Ranking: A Quest for Canada's Best.",
 };
 
 export default function RootLayout({

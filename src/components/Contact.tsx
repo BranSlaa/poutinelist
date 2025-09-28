@@ -74,7 +74,11 @@ export function Contact() {
 				and add it to the list.
 			</p>
 
-			<div className="max-w-md bg-white mx-auto rounded-lg">
+			<div className="max-w-md bg-white mx-auto rounded-lg relative">
+				<span className="text-4xl absolute top-0 left-0 z-10 -rotate-45 transform -translate-x-1/2 -translate-y-1/2">
+					🍟
+				</span>
+
 				<form
 					onSubmit={handleSubmit}
 					className="flex flex-col gap-4 bg-amber-500/25 p-8"

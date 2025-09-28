@@ -10,8 +10,26 @@ import Link from 'next/link';
 import { Contact } from '@/components/Contact';
 import { motion } from 'framer-motion';
 import { TopPoutineCard } from '@/components/TopPoutineCard';
+import { PoutineModal } from '@/components/PoutineModal';
+import { useState } from 'react';
+import { Poutine } from '@/types/poutine';
 
 export default function Home() {
+	const [selectedPoutine, setSelectedPoutine] = useState<Poutine | null>(
+		null
+	);
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const handlePoutineClick = (poutine: Poutine) => {
+		setSelectedPoutine(poutine);
+		setIsModalOpen(true);
+	};
+
+	const handleCloseModal = () => {
+		setIsModalOpen(false);
+		setSelectedPoutine(null);
+	};
+
 	return (
 		<div className="min-h-screen bg-amber-50/90 overflow-x-hidden">
 			<Navigation />
@@ -36,7 +54,7 @@ export default function Home() {
 							Fries, Gravy, and Curds. This list is my evolving
 							quest to find the perfect bowl.
 						</p>
-						<p className="text-xl text-amber-900 mb-4">
+						<p className="text-xl text-amber-900 mb-4 font-medium">
 							Do you know a great poutine I need to try?
 						</p>
 						<Link
@@ -53,6 +71,8 @@ export default function Home() {
 							alt="Poutine bowl"
 							width={646}
 							height={710}
+							priority
+							fetchPriority="high"
 							className="max-w-[300px] mx-auto relative z-10"
 						/>
 					</div>
@@ -73,7 +93,10 @@ export default function Home() {
 					</h3>
 
 					<div className="flex-1 flex flex-col items-center md:items-end mb-4">
-						<TopPoutineCard poutine={topPoutine} />
+						<TopPoutineCard
+							poutine={topPoutine}
+							onClick={handlePoutineClick}
+						/>
 					</div>
 
 					{/* Gravy Frame Container */}
@@ -93,17 +116,21 @@ export default function Home() {
 									key={index}
 									poutine={poutine}
 									rank={index + 2}
+									onClick={handlePoutineClick}
 								/>
 							))}
 						</div>
 					</div>
 				</div>
-				<div className="container mx-auto flex flex-col items-center mt-8 px-4 overflow-hidden">
-					<h3 className="text-2xl font-bold text-amber-800 mb-6 text-center lg:text-left">
-						Poutines List
+				<div className="container mx-auto flex flex-col  mt-8 px-4 overflow-hidden">
+					<h3 className="text-5xl font-bold text-amber-900 mb-6 text-center lg:text-left border-b-2 border-amber-900 pb-4">
+						Poutine List
 					</h3>
-					<div className="overflow-x-auto px-4">
-						<PoutineTable poutines={otherPoutines} />
+					<div className="overflow-x-auto">
+						<PoutineTable
+							poutines={otherPoutines}
+							onRowClick={handlePoutineClick}
+						/>
 					</div>
 				</div>
 			</div>
@@ -113,6 +140,13 @@ export default function Home() {
 			</div>
 
 			<Footer />
+
+			{/* Poutine Modal */}
+			<PoutineModal
+				poutine={selectedPoutine}
+				isOpen={isModalOpen}
+				onClose={handleCloseModal}
+			/>
 		</div>
 	);
 }

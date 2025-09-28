@@ -1,3 +1,6 @@
+import { Poutine, PoutineRating } from '@/types/poutine';
+import { getPoutineOverallRating } from '@/utils/ratingCalculator';
+
 interface StarProps {
 	fill: 'full' | 'half' | 'quarter' | 'three-quarter' | 'empty';
 }
@@ -48,18 +51,25 @@ export function Star({ fill }: StarProps) {
 }
 
 export function StarRating({
-	rating,
+	poutine,
 	className,
+	textColor = 'text-amber-900',
 }: {
-	rating: number;
+	poutine?: Poutine;
 	className?: string;
+	textColor?: string;
 }) {
-	// Convert 10-point scale to 5-star scale
-	const starRating = (rating / 10) * 5;
+	// Calculate the actual rating to use
+	let calculatedOverallRating: number = 0;
+
+	if (poutine) {
+		// Use the poutine's detailed ranking to calculate overall rating (0-5 scale)
+		calculatedOverallRating = getPoutineOverallRating(poutine);
+	}
 
 	// Calculate the fill for each star
 	const getStarFill = (starIndex: number): StarProps['fill'] => {
-		const starValue = starRating - starIndex;
+		const starValue = calculatedOverallRating - starIndex;
 
 		if (starValue <= 0) return 'empty';
 		if (starValue >= 1) return 'full';
@@ -76,8 +86,8 @@ export function StarRating({
 					<Star key={starIndex} fill={getStarFill(starIndex)} />
 				))}
 			</div>
-			<span className="text-amber-900 font-semibold text-sm">
-				{rating}/10
+			<span className={`${textColor} font-semibold text-sm`}>
+				{calculatedOverallRating.toFixed(3)}/5
 			</span>
 		</div>
 	);

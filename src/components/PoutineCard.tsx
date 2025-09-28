@@ -9,11 +9,15 @@ interface PoutineCardProps {
 	poutine: Poutine;
 	rank: number;
 	showRank?: boolean;
+	onClick?: (poutine: Poutine) => void;
 }
 
-export function PoutineCard({ poutine, rank }: PoutineCardProps) {
+export function PoutineCard({ poutine, rank, onClick }: PoutineCardProps) {
 	return (
-		<div className="gravy-frame relative  transition-shadow duration-300 z-20">
+		<div
+			className="gravy-frame relative transition-shadow duration-300 z-20 cursor-pointer group"
+			onClick={() => onClick?.(poutine)}
+		>
 			<motion.div
 				className="fry-image absolute"
 				initial={{ opacity: 0, x: 10 }}
@@ -33,18 +37,18 @@ export function PoutineCard({ poutine, rank }: PoutineCardProps) {
 				{rank}
 			</div>
 			<motion.div
-				className="relative p-2 z-10 flex items-center gap-3 bg-white rounded-xl shadow-lg"
+				className="relative z-10 flex items-center gap-3 bg-white rounded-xl"
 				initial={{ opacity: 0, y: 10 }}
 				animate={{ opacity: 1, y: 0 }}
 				exit={{ opacity: 0, y: -10 }}
 				transition={{ duration: 0.5 }}
 			>
-				<div className="flex-1">
+				<div className="flex-1 rounded-xl p-2 group-hover:bg-amber-100">
 					<div className="flex flex-col title-bar">
 						<div className="flex items-center gap-2 mb-1 pl-8 md:pl-0">
-							<StarRating rating={poutine.rating} />
+							<StarRating poutine={poutine} />
 						</div>
-						<h3 className="text-amber-900 font-bold text-lg whitespace-nowrap">
+						<h3 className="text-amber-900 text-lg whitespace-nowrap font-titan-one">
 							{poutine.name}
 						</h3>
 					</div>

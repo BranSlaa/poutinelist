@@ -1,7 +1,13 @@
 import { Poutine } from '@/types/poutine';
 import { StarRating } from '@/components/ui/stars';
 
-export function PoutineTable({ poutines }: { poutines: Poutine[] }) {
+export function PoutineTable({
+	poutines,
+	onRowClick,
+}: {
+	poutines: Poutine[];
+	onRowClick?: (poutine: Poutine) => void;
+}) {
 	return (
 		<table className="table-auto w-full bg-white rounded-lg p-4 text-amber-950 overflow-x-auto max-w-screen">
 			<thead className="border-b border-amber-900">
@@ -15,9 +21,13 @@ export function PoutineTable({ poutines }: { poutines: Poutine[] }) {
 			</thead>
 			<tbody>
 				{poutines.map((poutine, index) => (
-					<tr key={index} className="bg-white even:bg-amber-50">
+					<tr
+						key={index}
+						className="bg-white even:bg-orange-50 hover:bg-amber-100 cursor-pointer transition-colors"
+						onClick={() => onRowClick?.(poutine)}
+					>
 						<td className="py-2 px-4 text-center">
-							<span className="rounded-full bg-amber-700/30 text-amber-950 px-2 py-1">
+							<span className="rounded-full bg-amber-500/20 text-amber-700 px-2 py-1 font-bold">
 								{index + 5}
 							</span>
 						</td>
@@ -26,7 +36,7 @@ export function PoutineTable({ poutines }: { poutines: Poutine[] }) {
 						<td className="py-2 px-4">{poutine.location}</td>
 						<td className="py-2 px-4">
 							<StarRating
-								rating={poutine.rating}
+								poutine={poutine}
 								className="flex-col"
 							/>
 						</td>
