@@ -4,8 +4,8 @@ import { Instagram } from 'lucide-react';
 
 export function Navigation() {
 	return (
-		<nav className="container mx-auto text-amber-900 p-4">
-			<div className=" flex justify-between items-center">
+		<nav className="bg-amber-50">
+			<div className="container mx-auto flex justify-between items-center text-amber-900 p-4">
 				<Link href="/" className="" aria-label="Poutine List">
 					<Image
 						src="/PoutineListLogo.webp"

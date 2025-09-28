@@ -8,6 +8,8 @@ export function calculateCategoryAverage(
 ): number {
 	const values = Object.values(category).filter(value => value !== 0);
 
+	if (values.length === 0) return 0;
+
 	const average =
 		values.reduce((sum, value) => sum + value, 0 as number) / values.length;
 	return average;

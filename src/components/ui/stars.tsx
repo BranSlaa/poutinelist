@@ -53,7 +53,7 @@ export function Star({ fill }: StarProps) {
 export function StarRating({
 	poutine,
 	className,
-	textColor = 'text-amber-900',
+	textColor = 'black',
 }: {
 	poutine?: Poutine;
 	className?: string;

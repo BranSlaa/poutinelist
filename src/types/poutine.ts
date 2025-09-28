@@ -29,8 +29,10 @@ export interface PoutineRating {
 
 export interface Poutine {
 	name: string;
+	restaurant?: string;
 	image_url?: string;
 	description?: string;
 	location?: string;
+	location_url?: string;
 	rating?: PoutineRating; // Optional detailed breakdown
 }

@@ -9,8 +9,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-titan-one: var(--font-titan-one);
-  --font-montserrat: var(--font-montserrat);
-  --font-sans: var(--font-montserrat);
+  --font-quicksand: var(--font-quicksand);
+  --font-sans: var(--font-quicksand);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,18 +20,27 @@
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-montserrat);
-  background-image: url(/image-tile-bg.webp);
-  background-size: 500px 500px;
-  background-position: 0 0;
-  background-repeat: repeat;  
+.tile-bg::before {
+	content: '';
+	position: absolute;
+	width: 100vw;
+	height: 100%;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 0.8;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-quicksand);
+	background-image: url(/image-tile-bg.webp);
+	background-size: 500px 500px;
+	background-position: 0 0;
+	background-repeat: repeat;
+
 }
 
 body::selection {
-  background: #bb4d00;
+  background: #7b3306;
   color: #ffffff;
 }
 

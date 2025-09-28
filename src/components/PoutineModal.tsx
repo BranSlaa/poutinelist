@@ -3,13 +3,18 @@
 import { Poutine } from '@/types/poutine';
 import { StarRating } from '@/components/ui/stars';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Car, X } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect } from 'react';
 
 interface PoutineModalProps {
 	poutine: Poutine | null;
+	poutines: Poutine[];
+	currentIndex: number;
 	isOpen: boolean;
 	onClose: () => void;
+	onNavigate: (index: number) => void;
 }
 
 interface LikertScaleProps {
@@ -19,23 +24,38 @@ interface LikertScaleProps {
 }
 
 function LikertScale({ label, value, max }: LikertScaleProps) {
+	const getDotColor = (dotIndex: number) => {
+		if (dotIndex >= value) {
+			// Empty dots
+			return 'bg-white border-amber-300';
+		}
+
+		// Filled dots - color based on value
+		if (value === 1) return 'bg-red-500 border-red-500';
+		if (value === 2) return 'bg-orange-500 border-orange-500';
+		if (value === 3) return 'bg-amber-500 border-amber-500';
+		if (value === 4) return 'bg-lime-500 border-lime-500'; // Same as 3
+		if (value === 5) return 'bg-green-700 border-green-700';
+
+		// Default fallback
+		return 'bg-amber-500 border-amber-500';
+	};
+
 	return (
 		<div className="flex items-center justify-between py-2">
-			<span className="text-sm font-medium text-amber-800 w-28 flex-shrink-0">
+			<span className="text-sm font-medium text-black w-28 flex-shrink-0">
 				{label}
 			</span>
 			<div className="flex items-center gap-1 flex-1 max-w-32">
 				{Array.from({ length: max }, (_, i) => (
 					<div
 						key={i}
-						className={`w-4 h-4 rounded-full border-2 ${
-							i < value
-								? 'bg-amber-500 border-amber-500'
-								: 'bg-white border-amber-300'
-						}`}
+						className={`w-4 h-4 rounded-full border-2 ${getDotColor(
+							i
+						)}`}
 					/>
 				))}
-				<span className="ml-2 text-xs font-bold text-amber-700 min-w-6">
+				<span className="ml-2 text-xs font-bold text-black min-w-6">
 					{value}/{max}
 				</span>
 			</div>
@@ -52,7 +72,7 @@ function RankingSection({
 }) {
 	return (
 		<div className="bg-orange-50 rounded-lg p-4 mb-4">
-			<h4 className="font-bold text-amber-900 mb-3 text-lg">{title}</h4>
+			<h4 className="font-bold text-red-800 mb-3 text-lg">{title}</h4>
 			<div className="space-y-1">
 				{Object.entries(rankings).map(([key, value]) => (
 					<LikertScale
@@ -67,10 +87,51 @@ function RankingSection({
 	);
 }
 
-export function PoutineModal({ poutine, isOpen, onClose }: PoutineModalProps) {
+export function PoutineModal({
+	poutine,
+	poutines,
+	currentIndex,
+	isOpen,
+	onClose,
+	onNavigate,
+}: PoutineModalProps) {
 	if (!poutine) return null;
 
 	const ranking = poutine.rating;
+
+	// Navigation functions
+	const handlePrevious = () => {
+		const prevIndex =
+			currentIndex > 0 ? currentIndex - 1 : poutines.length - 1;
+		onNavigate(prevIndex);
+	};
+
+	const handleNext = () => {
+		const nextIndex =
+			currentIndex < poutines.length - 1 ? currentIndex + 1 : 0;
+		onNavigate(nextIndex);
+	};
+
+	const canGoPrevious = poutines.length > 1;
+	const canGoNext = poutines.length > 1;
+
+	// Keyboard navigation
+	useEffect(() => {
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (!isOpen) return;
+
+			if (event.key === 'ArrowLeft' && canGoPrevious) {
+				handlePrevious();
+			} else if (event.key === 'ArrowRight' && canGoNext) {
+				handleNext();
+			} else if (event.key === 'Escape') {
+				onClose();
+			}
+		};
+
+		document.addEventListener('keydown', handleKeyDown);
+		return () => document.removeEventListener('keydown', handleKeyDown);
+	}, [isOpen, canGoPrevious, canGoNext, handlePrevious, handleNext, onClose]);
 
 	return (
 		<AnimatePresence>
@@ -105,7 +166,7 @@ export function PoutineModal({ poutine, isOpen, onClose }: PoutineModalProps) {
 							>
 								<X className="w-5 h-5" />
 							</button>
-							<div className="flex items-center gap-4 pr-10">
+							<div className="flex flex-wrap items-center gap-4 pr-10">
 								<div className="flex-1">
 									<h2 className="text-2xl font-titan-one">
 										{poutine.name}
@@ -127,7 +188,7 @@ export function PoutineModal({ poutine, isOpen, onClose }: PoutineModalProps) {
 						</div>
 
 						{/* Content */}
-						<div className="p-4 h-full">
+						<div className="p-4">
 							{/* Image */}
 							{poutine.image_url && (
 								<div className="mb-4">
@@ -138,8 +199,8 @@ export function PoutineModal({ poutine, isOpen, onClose }: PoutineModalProps) {
 										<Image
 											src={poutine.image_url}
 											alt={poutine.name}
-											width={100}
-											height={100}
+											width={1000}
+											height={1000}
 											className="w-full h-full object-cover"
 										/>
 									</div>
@@ -148,19 +209,33 @@ export function PoutineModal({ poutine, isOpen, onClose }: PoutineModalProps) {
 							{/* Description */}
 							{poutine.description && (
 								<div className="mb-4">
-									<h3 className="font-bold text-amber-900 mb-2">
+									<h3 className="font-bold text-red-800 mb-2">
 										Description
 									</h3>
-									<p className="text-amber-800 leading-relaxed">
+									<p className="text-black leading-relaxed">
 										{poutine.description}
 									</p>
 								</div>
 							)}
 
+							{poutine.location_url && (
+								<div className="mb-4">
+									<Link
+										href={poutine.location_url}
+										className="text-green-800"
+									>
+										<h3 className="font-bold text-green-700 mb-2 flex items-center gap-2">
+											<Car className="w-4 h-4" /> Get
+											Directions
+										</h3>
+									</Link>
+								</div>
+							)}
+
 							{/* Detailed Rankings */}
 							{ranking && (
-								<div className="pb-4">
-									<h3 className="font-bold text-amber-900 mb-4 text-xl">
+								<div className="">
+									<h3 className="font-bold text-red-800 mb-4 text-xl">
 										Detailed Ranking
 									</h3>
 
@@ -206,6 +281,38 @@ export function PoutineModal({ poutine, isOpen, onClose }: PoutineModalProps) {
 									/>
 								</div>
 							)}
+						</div>
+						{/* footer navigation */}
+						<div className="flex justify-between items-center p-4 bg-white sticky bottom-0 z-10 border-t border-gray-200">
+							<button
+								onClick={handlePrevious}
+								disabled={!canGoPrevious}
+								className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${
+									canGoPrevious
+										? 'text-amber-700 hover:bg-amber-100'
+										: 'text-gray-400 cursor-not-allowed'
+								}`}
+							>
+								<ArrowLeft className="w-4 h-4" />
+								Previous
+							</button>
+
+							<div className="text-sm text-gray-600 font-medium">
+								{currentIndex + 1} of {poutines.length}
+							</div>
+
+							<button
+								onClick={handleNext}
+								disabled={!canGoNext}
+								className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${
+									canGoNext
+										? 'text-amber-700 hover:bg-amber-100'
+										: 'text-gray-400 cursor-not-allowed'
+								}`}
+							>
+								Next
+								<ArrowRight className="w-4 h-4" />
+							</button>
 						</div>
 					</motion.div>
 				</>

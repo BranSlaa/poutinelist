@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Input } from './ui/input';
+import { motion } from 'framer-motion';
 
 export function Contact() {
 	const [formData, setFormData] = useState({
@@ -65,79 +66,88 @@ export function Contact() {
 	};
 
 	return (
-		<div id="submit-poutine" className="text-center pt-16">
-			<h2 className="text-4xl font-bold text-amber-900 mb-2">
-				Do you know of a great poutine?
-			</h2>
-			<p className="text-amber-900 mb-6">
-				If you give me the address, I&apos;ll take a trip to try it out
-				and add it to the list.
-			</p>
+		<motion.div
+			id="submit-poutine"
+			className="text-center pt-16"
+			initial={{ opacity: 0, y: 10 }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: -10 }}
+			transition={{ duration: 0.5 }}
+		>
+			<div className="relative z-10 bg-white w-fit mx-auto rounded-lg p-8 shadow-lg">
+				<h2 className="text-4xl font-bold text-red-800 mb-2">
+					Do you know of a great poutine?
+				</h2>
+				<p className="text-red-800 mb-6 max-w-md mx-auto">
+					If you give me the address, I&apos;ll take a trip to try it
+					out and add it to the list.
+				</p>
 
-			<div className="max-w-md bg-white mx-auto rounded-lg relative">
-				<span className="text-4xl absolute top-0 left-0 z-10 -rotate-45 transform -translate-x-1/2 -translate-y-1/2">
-					🍟
-				</span>
+				<div className="max-w-md bg-white mx-auto rounded-lg relative">
+					<span className="text-4xl absolute top-0 left-0 z-10 -rotate-45 transform -translate-x-1/2 -translate-y-1/2">
+						🍟
+					</span>
 
-				<form
-					onSubmit={handleSubmit}
-					className="flex flex-col gap-4 bg-amber-500/25 p-8"
-				>
-					<Input
-						type="text"
-						name="restaurantName"
-						placeholder="Restaurant name"
-						value={formData.restaurantName}
-						onChange={handleInputChange}
-						required
-					/>
-
-					<Input
-						type="text"
-						name="address"
-						placeholder="Address"
-						value={formData.address}
-						onChange={handleInputChange}
-						required
-					/>
-
-					<Input
-						type="text"
-						name="handle"
-						placeholder="Your name or social media handle (optional)"
-						value={formData.handle}
-						onChange={handleInputChange}
-					/>
-
-					<textarea
-						name="description"
-						placeholder="Tell me about this poutine (optional)"
-						value={formData.description}
-						onChange={handleInputChange}
-						rows={3}
-						className="bg-white text-amber-950 rounded-md p-3 border-0 focus:outline-none focus:ring-2 focus:ring-amber-700 resize-none placeholder:text-amber-900/50"
-					/>
-
-					<button
-						type="submit"
-						disabled={isSubmitting}
-						className="bg-gradient-to-b from-amber-400 to-amber-500 text-amber-950 py-3 px-6 rounded-md font-medium hover:bg-amber-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+					<form
+						onSubmit={handleSubmit}
+						className="flex flex-col gap-4 bg-amber-500/25 p-8"
 					>
-						{isSubmitting ? 'Submitting...' : 'Submit'}
-					</button>
+						<Input
+							type="text"
+							name="restaurantName"
+							placeholder="Restaurant name"
+							value={formData.restaurantName}
+							onChange={handleInputChange}
+							required
+						/>
 
-					{submitStatus === 'error' && (
-						<p className="text-red-700 font-medium">
-							Something went wrong. Please try again.
-						</p>
-					)}
-					{submitStatus === 'success' && (
-						<p className="text-green-700 font-bold">
-							{submitMessage}
-						</p>
-					)}
-				</form>
+						<Input
+							type="text"
+							name="address"
+							placeholder="Address"
+							value={formData.address}
+							onChange={handleInputChange}
+							required
+						/>
+
+						<Input
+							type="text"
+							name="handle"
+							placeholder="Your name or social media handle (optional)"
+							value={formData.handle}
+							onChange={handleInputChange}
+						/>
+
+						<textarea
+							name="description"
+							placeholder="Tell me about this poutine (optional)"
+							value={formData.description}
+							onChange={handleInputChange}
+							rows={3}
+							className="bg-white text-amber-950 rounded-md p-3 border-0 focus:outline-none focus:ring-2 focus:ring-amber-700 resize-none placeholder:text-amber-900/50"
+						/>
+
+						<button
+							type="submit"
+							disabled={isSubmitting}
+							className="bg-red-800 text-white py-3 px-6 rounded-md font-bold hover:bg-amber-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+						>
+							{isSubmitting ? 'Submitting...' : 'Submit'}
+						</button>
+
+						{submitStatus === 'error' && (
+							<p className="text-red-700 font-medium">
+								Something went wrong. Please try again.
+							</p>
+						)}
+						{submitStatus === 'success' && (
+							<p className="text-green-700 font-bold">
+								{submitMessage}
+							</p>
+						)}
+					</form>
+				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 }

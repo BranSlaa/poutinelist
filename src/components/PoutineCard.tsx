@@ -33,7 +33,7 @@ export function PoutineCard({ poutine, rank, onClick }: PoutineCardProps) {
 					className="object-contain"
 				/>
 			</motion.div>
-			<div className="absolute -top-6 md:top-0 -left-2 md:-left-12 w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center overflow-hidden border-2 border-amber-700 text-amber-700 font-bold text-2xl z-20">
+			<div className="absolute -top-6 md:top-0 -left-2 md:-left-12 w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center overflow-hidden border-2 border-red-800 text-red-800 font-bold text-2xl z-20">
 				{rank}
 			</div>
 			<motion.div
@@ -48,13 +48,13 @@ export function PoutineCard({ poutine, rank, onClick }: PoutineCardProps) {
 						<div className="flex items-center gap-2 mb-1 pl-8 md:pl-0">
 							<StarRating poutine={poutine} />
 						</div>
-						<h3 className="text-amber-900 text-lg whitespace-nowrap font-titan-one">
+						<h3 className="text-red-800 text-lg whitespace-nowrap font-titan-one">
 							{poutine.name}
 						</h3>
 					</div>
 
 					{poutine.location && (
-						<p className="text-amber-700 text-sm whitespace-nowrap">
+						<p className="text-red-700 text-sm whitespace-nowrap">
 							{poutine.location}
 						</p>
 					)}

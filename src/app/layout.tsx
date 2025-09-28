@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Titan_One, Montserrat } from 'next/font/google';
+import { Titan_One, Quicksand } from 'next/font/google';
 import './globals.css';
 
 const titanOne = Titan_One({
@@ -8,8 +8,8 @@ const titanOne = Titan_One({
 	subsets: ['latin'],
 });
 
-const montserrat = Montserrat({
-	variable: '--font-montserrat',
+const quicksand = Quicksand({
+	variable: '--font-quicksand',
 	subsets: ['latin'],
 });
 
@@ -26,7 +26,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${titanOne.variable} ${montserrat.variable} font-sans antialiased`}
+				className={`${titanOne.variable} ${quicksand.variable} font-sans antialiased`}
 			>
 				{children}
 			</body>
