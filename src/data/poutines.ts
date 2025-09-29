@@ -18,6 +18,7 @@ export const poutines: Poutine[] = [
 	},
 	{
 		name: 'Buffalo Chicken Poutine',
+		image_url: '/poutines/harveys-regular-buffalo-chicken-poutine.jpg',
 		description:
 			"Spicy buffalo chicken with cheese curds and gravy. It can depend on who makes it, so sometimes it's better to ask for less sauce if you know your local joint.",
 		location: "Harvey's",
@@ -32,7 +33,7 @@ export const poutines: Poutine[] = [
 	},
 	{
 		name: 'Banff Poutine',
-		image_url: '/banff-poutine.webp',
+		image_url: '/poutines/banff-poutine.webp',
 		description:
 			'A Perfect poutine made by a true Quebecean. A thin mushroom gravy, perfect cheese curds, and amazingly crispy fries. I almost bought a second one.',
 		location: 'Banff, AB',
@@ -42,7 +43,7 @@ export const poutines: Poutine[] = [
 			fries: { doneness: 5, taste: 5, cut: 5 },
 			gravy: { taste: 5, viscosity: 5, temperature: 5, amount: 5 },
 			cheeseCurds: { texture: 5, melt: 5, taste: 5, amount: 5 },
-			overall: { toppings: 5, portion: 5, vessel: 5, harmony: 5 },
+			overall: { toppings: 5, portion: 5, vessel: 4, harmony: 5 },
 		},
 	},
 	{

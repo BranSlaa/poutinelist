@@ -16,7 +16,7 @@ import { Contact } from '@/components/Contact';
 import { motion } from 'framer-motion';
 import { TopPoutineCard } from '@/components/TopPoutineCard';
 import { PoutineModal } from '@/components/PoutineModal';
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Poutine } from '@/types/poutine';
 
 export default function Home() {
@@ -26,23 +26,23 @@ export default function Home() {
 	const [currentPoutineIndex, setCurrentPoutineIndex] = useState(0);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
-	const handlePoutineClick = (poutine: Poutine) => {
+	const handlePoutineClick = useCallback((poutine: Poutine) => {
 		// Find the index of the clicked poutine in the sorted list
 		const index = sortedPoutines.findIndex(p => p.name === poutine.name);
 		setCurrentPoutineIndex(index);
 		setSelectedPoutine(poutine);
 		setIsModalOpen(true);
-	};
+	}, []);
 
-	const handleCloseModal = () => {
+	const handleCloseModal = useCallback(() => {
 		setIsModalOpen(false);
 		setSelectedPoutine(null);
-	};
+	}, []);
 
-	const handleNavigate = (index: number) => {
+	const handleNavigate = useCallback((index: number) => {
 		setCurrentPoutineIndex(index);
 		setSelectedPoutine(sortedPoutines[index]);
-	};
+	}, []);
 
 	return (
 		<div className="min-h-screen overflow-x-hidden">
@@ -163,7 +163,7 @@ export default function Home() {
 				</motion.div>
 			</div>
 
-			<div className="relative p-12 tile-bg">
+			<div className="relative p-12 tile-bg border-t-4 border-amber-900">
 				<Contact />
 			</div>
 

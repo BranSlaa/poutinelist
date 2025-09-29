@@ -48,16 +48,31 @@ export function PoutineCard({ poutine, rank, onClick }: PoutineCardProps) {
 						<div className="flex items-center gap-2 mb-1 pl-8 md:pl-0">
 							<StarRating poutine={poutine} />
 						</div>
-						<h3 className="text-red-800 text-lg whitespace-nowrap font-titan-one">
-							{poutine.name}
-						</h3>
 					</div>
+					<div className="flex items-center gap-2">
+						<div className="flex flex-col">
+							<h3 className="text-red-800 text-lg whitespace-nowrap font-titan-one">
+								{poutine.name}
+							</h3>
 
-					{poutine.location && (
-						<p className="text-red-700 text-sm whitespace-nowrap">
-							{poutine.location}
-						</p>
-					)}
+							{poutine.location && (
+								<p className="text-red-700 text-sm whitespace-nowrap">
+									{poutine.location}
+								</p>
+							)}
+						</div>
+						{poutine.image_url && (
+							<div className="w-12 h-12 overflow-hidden rounded-full">
+								<Image
+									src={poutine.image_url}
+									alt={poutine.name}
+									width={100}
+									height={100}
+									className="w-full h-full object-cover"
+								/>
+							</div>
+						)}
+					</div>
 				</div>
 			</motion.div>
 		</div>

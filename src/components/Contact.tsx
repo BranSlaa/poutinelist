@@ -124,13 +124,13 @@ export function Contact() {
 							value={formData.description}
 							onChange={handleInputChange}
 							rows={3}
-							className="bg-white text-amber-950 rounded-md p-3 border-0 focus:outline-none focus:ring-2 focus:ring-amber-700 resize-none placeholder:text-amber-900/50"
+							className="bg-white text-amber-950 rounded-md p-3 border-0 focus:outline-none focus:ring-2 focus:ring-amber-900 resize-none placeholder:text-amber-950/50 font-bold placeholder:font-normal"
 						/>
 
 						<button
 							type="submit"
 							disabled={isSubmitting}
-							className="bg-red-800 text-white py-3 px-6 rounded-md font-bold hover:bg-amber-900 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+							className="bg-red-800 text-white py-3 px-6 rounded-md font-bold hover:bg-amber-900 transition-colors"
 						>
 							{isSubmitting ? 'Submitting...' : 'Submit'}
 						</button>

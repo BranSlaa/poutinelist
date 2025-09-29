@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Car, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 
 interface PoutineModalProps {
 	poutine: Poutine | null;
@@ -95,27 +95,23 @@ export function PoutineModal({
 	onClose,
 	onNavigate,
 }: PoutineModalProps) {
-	if (!poutine) return null;
-
-	const ranking = poutine.rating;
-
-	// Navigation functions
-	const handlePrevious = () => {
+	// Navigation functions - must be called before any early returns
+	const handlePrevious = useCallback(() => {
 		const prevIndex =
 			currentIndex > 0 ? currentIndex - 1 : poutines.length - 1;
 		onNavigate(prevIndex);
-	};
+	}, [currentIndex, poutines.length, onNavigate]);
 
-	const handleNext = () => {
+	const handleNext = useCallback(() => {
 		const nextIndex =
 			currentIndex < poutines.length - 1 ? currentIndex + 1 : 0;
 		onNavigate(nextIndex);
-	};
+	}, [currentIndex, poutines.length, onNavigate]);
 
 	const canGoPrevious = poutines.length > 1;
 	const canGoNext = poutines.length > 1;
 
-	// Keyboard navigation
+	// Keyboard navigation - must be called before any early returns
 	useEffect(() => {
 		const handleKeyDown = (event: KeyboardEvent) => {
 			if (!isOpen) return;
@@ -132,6 +128,10 @@ export function PoutineModal({
 		document.addEventListener('keydown', handleKeyDown);
 		return () => document.removeEventListener('keydown', handleKeyDown);
 	}, [isOpen, canGoPrevious, canGoNext, handlePrevious, handleNext, onClose]);
+
+	if (!poutine) return null;
+
+	const ranking = poutine.rating;
 
 	return (
 		<AnimatePresence>
@@ -286,12 +286,7 @@ export function PoutineModal({
 						<div className="flex justify-between items-center p-4 bg-white sticky bottom-0 z-10 border-t border-gray-200">
 							<button
 								onClick={handlePrevious}
-								disabled={!canGoPrevious}
-								className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${
-									canGoPrevious
-										? 'text-amber-700 hover:bg-amber-100'
-										: 'text-gray-400 cursor-not-allowed'
-								}`}
+								className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors text-amber-700 hover:bg-amber-100`}
 							>
 								<ArrowLeft className="w-4 h-4" />
 								Previous
@@ -303,12 +298,7 @@ export function PoutineModal({
 
 							<button
 								onClick={handleNext}
-								disabled={!canGoNext}
-								className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors ${
-									canGoNext
-										? 'text-amber-700 hover:bg-amber-100'
-										: 'text-gray-400 cursor-not-allowed'
-								}`}
+								className={`flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-colors text-amber-700 hover:bg-amber-100`}
 							>
 								Next
 								<ArrowRight className="w-4 h-4" />
