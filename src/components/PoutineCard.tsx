@@ -62,7 +62,7 @@ export function PoutineCard({ poutine, rank, onClick }: PoutineCardProps) {
 							)}
 						</div>
 						{poutine.image_url && (
-							<div className="w-12 h-12 overflow-hidden rounded-full">
+							<div className="w-12 h-12 overflow-hidden rounded-lg">
 								<Image
 									src={poutine.image_url}
 									alt={poutine.name}

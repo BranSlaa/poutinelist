@@ -57,7 +57,7 @@ export const poutines: Poutine[] = [
 			fries: { doneness: 2, taste: 2, cut: 3 },
 			gravy: { taste: 3, viscosity: 3, temperature: 4, amount: 4 },
 			cheeseCurds: { texture: 4, melt: 4, taste: 4, amount: 5 },
-			overall: { toppings: 4, portion: 4, vessel: 4, harmony: 3 },
+			overall: { toppings: 4, portion: 4, vessel: 3, harmony: 3 },
 		},
 	},
 	{
@@ -81,7 +81,7 @@ export const poutines: Poutine[] = [
 		location_url:
 			"https://www.google.com/maps/place/Wendy's/@42.7797172,-81.1744258,792m/data=!3m2!1e3!4b1!4m6!3m5!1s0x882e5e23b745e369:0xe311f8e6c0892263!8m2!3d42.7797172!4d-81.1718509!16s%2Fg%2F1tp0f9kj?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D",
 		rating: {
-			fries: { doneness: 2, taste: 2, cut: 2 },
+			fries: { doneness: 2, taste: 3, cut: 3 },
 			gravy: { taste: 4, viscosity: 4, temperature: 3, amount: 3 },
 			cheeseCurds: { texture: 3, melt: 3, taste: 3, amount: 2 },
 			overall: { toppings: 0, portion: 2, vessel: 5, harmony: 4 },
@@ -112,7 +112,7 @@ export const poutines: Poutine[] = [
 			fries: { doneness: 4, taste: 4, cut: 5 },
 			gravy: { taste: 0, viscosity: 0, temperature: 0, amount: 0 },
 			cheeseCurds: { texture: 4, melt: 5, taste: 4, amount: 3 },
-			overall: { toppings: 4, portion: 4, vessel: 4, harmony: 3 },
+			overall: { toppings: 3, portion: 4, vessel: 4, harmony: 3 },
 		},
 	},
 ];

@@ -58,7 +58,7 @@ export default function Home() {
 					{/* Header */}
 					<div className="md:col-span-2">
 						<h1 className="sr-only">Poutine List</h1>
-						<h2 className="text-4xl text-amber-900 mb-4 font-titan-one">
+						<h2 className="text-4xl text-amber-900 font-titan-one">
 							The Definitive Poutine Ranking: A Quest for
 							Canada&apos;s Best.
 						</h2>
