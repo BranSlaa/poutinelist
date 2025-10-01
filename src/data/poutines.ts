@@ -25,10 +25,10 @@ export const poutines: Poutine[] = [
 		location_url:
 			"https://www.google.com/maps/place/Harvey's/@42.7782222,-81.1750464,792m/data=!3m2!1e3!4b1!4m6!3m5!1s0x882e5e2303e7432f:0x8d0a7d1a1edbbb37!8m2!3d42.7782222!4d-81.1724715!16s%2Fg%2F11cm_ggf15?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D",
 		rating: {
-			fries: { doneness: 4, taste: 3, cut: 4 },
-			gravy: { taste: 5, viscosity: 5, temperature: 5, amount: 4 },
-			cheeseCurds: { texture: 5, melt: 4, taste: 5, amount: 5 },
-			overall: { toppings: 5, portion: 5, vessel: 4, harmony: 5 },
+			fries: { doneness: 3, taste: 3, cut: 3 },
+			gravy: { taste: 4, viscosity: 4, temperature: 4, amount: 4 },
+			cheeseCurds: { texture: 4, melt: 4, taste: 5, amount: 5 },
+			overall: { toppings: 4, portion: 5, vessel: 2, harmony: 5 },
 		},
 	},
 	{
@@ -67,7 +67,7 @@ export const poutines: Poutine[] = [
 		location_url:
 			"https://www.google.com/maps/place/McDonald's/@42.7791579,-81.1824924,792m/data=!3m2!1e3!4b1!4m6!3m5!1s0x882e5e3dd23f3463:0xaa61d22d0f75ca58!8m2!3d42.7791579!4d-81.1799175!16s%2Fg%2F1td9r4sn?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D",
 		rating: {
-			fries: { doneness: 3, taste: 4, cut: 3 },
+			fries: { doneness: 2, taste: 4, cut: 2 },
 			gravy: { taste: 4, viscosity: 3, temperature: 3, amount: 4 },
 			cheeseCurds: { texture: 3, melt: 4, taste: 4, amount: 3 },
 			overall: { toppings: 0, portion: 3, vessel: 5, harmony: 4 },
@@ -82,7 +82,7 @@ export const poutines: Poutine[] = [
 			"https://www.google.com/maps/place/Wendy's/@42.7797172,-81.1744258,792m/data=!3m2!1e3!4b1!4m6!3m5!1s0x882e5e23b745e369:0xe311f8e6c0892263!8m2!3d42.7797172!4d-81.1718509!16s%2Fg%2F1tp0f9kj?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D",
 		rating: {
 			fries: { doneness: 2, taste: 3, cut: 3 },
-			gravy: { taste: 4, viscosity: 4, temperature: 3, amount: 3 },
+			gravy: { taste: 3, viscosity: 3, temperature: 3, amount: 3 },
 			cheeseCurds: { texture: 3, melt: 3, taste: 3, amount: 2 },
 			overall: { toppings: 0, portion: 2, vessel: 5, harmony: 4 },
 		},
