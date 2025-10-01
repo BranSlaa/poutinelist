@@ -98,7 +98,7 @@ export const poutines: Poutine[] = [
 			fries: { doneness: 4, taste: 4, cut: 4 },
 			gravy: { taste: 4, viscosity: 3, temperature: 3, amount: 4 },
 			cheeseCurds: { texture: 4, melt: 4, taste: 5, amount: 4 },
-			overall: { toppings: 0, portion: 4, vessel: 5, harmony: 4 },
+			overall: { toppings: 0, portion: 3, vessel: 5, harmony: 4 },
 		},
 	},
 	{
