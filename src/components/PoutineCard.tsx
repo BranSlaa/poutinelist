@@ -43,36 +43,38 @@ export function PoutineCard({ poutine, rank, onClick }: PoutineCardProps) {
 				exit={{ opacity: 0, y: -10 }}
 				transition={{ duration: 0.5 }}
 			>
-				<div className="flex-1 rounded-xl p-2 group-hover:bg-amber-100">
-					<div className="flex flex-col title-bar">
-						<div className="flex items-center gap-2 mb-1 pl-8 md:pl-0">
-							<StarRating poutine={poutine} />
-						</div>
-					</div>
-					<div className="flex items-center gap-2">
-						<div className="flex flex-col">
-							<h3 className="text-red-800 text-lg whitespace-nowrap font-titan-one">
-								{poutine.name}
-							</h3>
-
-							{poutine.location && (
-								<p className="text-red-700 text-sm whitespace-nowrap">
-									{poutine.location}
-								</p>
-							)}
-						</div>
-						{poutine.image_url && (
-							<div className="w-12 h-12 overflow-hidden rounded-lg">
-								<Image
-									src={poutine.image_url}
-									alt={poutine.name}
-									width={100}
-									height={100}
-									className="w-full h-full object-cover"
-								/>
+				<div className="flex-1 rounded-xl p-2 group-hover:bg-amber-100 flex align-end w-full">
+					<div className="flex flex-col pr-4">
+						<div className="flex flex-col title-bar">
+							<div className="flex items-center gap-2 mb-1 pl-8 md:pl-0">
+								<StarRating poutine={poutine} />
 							</div>
-						)}
+						</div>
+						<div className="flex items-center gap-4 max-w-[228px]">
+							<div className="flex flex-col w-full">
+								<h3 className="text-red-800 text-lg whitespace-nowrap font-titan-one w-full overflow-hidden text-ellipsis truncate">
+									{poutine.name}
+								</h3>
+
+								{poutine.location && (
+									<p className="text-red-700 text-sm whitespace-nowrap overflow-hidden text-ellipsis truncate">
+										{poutine.location}
+									</p>
+								)}
+							</div>
+						</div>
 					</div>
+					{poutine.image_url && (
+						<div className="w-12 h-full overflow-hidden rounded-lg flex-1">
+							<Image
+								src={poutine.image_url}
+								alt={poutine.name}
+								width={100}
+								height={100}
+								className="w-full h-full object-cover"
+							/>
+						</div>
+					)}
 				</div>
 			</motion.div>
 		</div>

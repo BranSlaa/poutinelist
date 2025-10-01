@@ -96,7 +96,7 @@ export const poutines: Poutine[] = [
 			'https://www.google.com/maps/place/Legends+Tavern/@42.7787756,-81.1938726,792m/data=!3m2!1e3!4b1!4m6!3m5!1s0x882e5e42201b0975:0xa742700669db22ac!8m2!3d42.7787756!4d-81.1912977!16s%2Fg%2F1w0j4v1m?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D',
 		rating: {
 			fries: { doneness: 4, taste: 4, cut: 4 },
-			gravy: { taste: 4, viscosity: 4, temperature: 3, amount: 4 },
+			gravy: { taste: 4, viscosity: 3, temperature: 3, amount: 4 },
 			cheeseCurds: { texture: 4, melt: 4, taste: 5, amount: 4 },
 			overall: { toppings: 0, portion: 4, vessel: 5, harmony: 4 },
 		},
@@ -113,6 +113,21 @@ export const poutines: Poutine[] = [
 			gravy: { taste: 0, viscosity: 0, temperature: 0, amount: 0 },
 			cheeseCurds: { texture: 4, melt: 5, taste: 4, amount: 3 },
 			overall: { toppings: 3, portion: 4, vessel: 4, harmony: 3 },
+		},
+	},
+	{
+		name: "Herm's Hot Hamburger Poutine",
+		image_url: '/poutines/Herms-hot-hamburger-poutine.webp',
+		description:
+			"Herm's Hot Hamburger poutine hits the spot. They have crispy fries you would expect from a chip wagon, fresh cheese and a tasty gravy. This is one you want to go back for.",
+		location: "Herm's Chip Wagon, St Thomas, ON",
+		location_url:
+			"https://www.google.com/maps/place/herm's+chip+wagon/data=!4m2!3m1!1s0x882e5e280ae293f9:0x2ac717be9fbe4d23?sa=X&ved=1t:242&ictx=111",
+		rating: {
+			fries: { doneness: 5, taste: 5, cut: 5 },
+			gravy: { taste: 4, viscosity: 4, temperature: 4, amount: 5 },
+			cheeseCurds: { texture: 5, melt: 5, taste: 5, amount: 5 },
+			overall: { toppings: 4, portion: 4, vessel: 4, harmony: 5 },
 		},
 	},
 ];
