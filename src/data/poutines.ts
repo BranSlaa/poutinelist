@@ -140,7 +140,7 @@ export const poutines: Poutine[] = [
 		rating: {
 			fries: { doneness: 4, taste: 5, cut: 5 },
 			gravy: { taste: 4, viscosity: 4, temperature: 4, amount: 5 },
-			cheeseCurds: { texture: 5, melt: 5, taste: 5, amount: 4 },
+			cheeseCurds: { texture: 4, melt: 4, taste: 5, amount: 4 },
 			overall: { toppings: 0, portion: 4, vessel: 5, harmony: 5 },
 		},
 	},
