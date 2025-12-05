@@ -25,7 +25,7 @@ export const poutines: Poutine[] = [
 		location_url:
 			"https://www.google.com/maps/place/Harvey's/@42.7782222,-81.1750464,792m/data=!3m2!1e3!4b1!4m6!3m5!1s0x882e5e2303e7432f:0x8d0a7d1a1edbbb37!8m2!3d42.7782222!4d-81.1724715!16s%2Fg%2F11cm_ggf15?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D",
 		rating: {
-			fries: { doneness: 3, taste: 3, cut: 3 },
+			fries: { doneness: 4, taste: 3, cut: 3 },
 			gravy: { taste: 4, viscosity: 4, temperature: 4, amount: 4 },
 			cheeseCurds: { texture: 4, melt: 4, taste: 5, amount: 5 },
 			overall: { toppings: 4, portion: 5, vessel: 2, harmony: 5 },
@@ -128,6 +128,20 @@ export const poutines: Poutine[] = [
 			gravy: { taste: 4, viscosity: 4, temperature: 4, amount: 5 },
 			cheeseCurds: { texture: 5, melt: 5, taste: 5, amount: 5 },
 			overall: { toppings: 4, portion: 4, vessel: 4, harmony: 5 },
+		},
+	},
+	{
+		name: "Mary Brown's Tater Poutine",
+		description:
+			"Mary Brown's tater poutine is a classic poutine made with wedges instead of fries, fresh cheese and a tasty gravy. The wedges are very tasty and hold up well to the gravy.",
+		location: "Mary Brown's, St Thomas, ON",
+		location_url:
+			"https://www.google.com/maps/place/Mary+Brown's+Chicken/@42.7790934,-81.1768299,17z/data=!3m1!4b1!4m6!3m5!1s0x882e5f3c4a407273:0x83fd290599af7920!8m2!3d42.7790934!4d-81.174255!16s%2Fg%2F11tfnc0yn9?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D",
+		rating: {
+			fries: { doneness: 4, taste: 5, cut: 5 },
+			gravy: { taste: 4, viscosity: 4, temperature: 4, amount: 5 },
+			cheeseCurds: { texture: 5, melt: 5, taste: 5, amount: 4 },
+			overall: { toppings: 0, portion: 4, vessel: 5, harmony: 5 },
 		},
 	},
 ];

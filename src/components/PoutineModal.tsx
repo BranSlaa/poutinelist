@@ -223,6 +223,8 @@ export function PoutineModal({
 									<Link
 										href={poutine.location_url}
 										className="text-green-800"
+										target="_blank"
+										rel="noopener noreferrer"
 									>
 										<h3 className="font-bold text-green-700 mb-2 flex items-center gap-2">
 											<Car className="w-4 h-4" /> Get
