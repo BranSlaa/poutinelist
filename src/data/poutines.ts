@@ -144,6 +144,21 @@ export const poutines: Poutine[] = [
 			overall: { toppings: 0, portion: 4, vessel: 5, harmony: 5 },
 		},
 	},
+	{
+		name: "Osmow's Chicken Shwarma Poutine",
+		image_url: '/poutines/osmows-chicken-shwarma-poutine.webp',
+		description:
+			"Classic Osmow's taste, this chicken shwarma poutine is a decent poutine made with chicken shwarma. I would have liked more gravy and less sauce however. If you like Osmow's you'll like this.",
+		location: "Osmow's, St Thomas, ON",
+		location_url:
+			"https://www.google.com/maps/place/Osmow's+Shawarma/@42.7819682,-81.1772697,1583m/data=!3m2!1e3!4b1!4m6!3m5!1s0x882e5fcad595cc53:0x8fa3d6164cc1f677!8m2!3d42.7819682!4d-81.1746948!16s%2Fg%2F11mj8bs5nr?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D",
+		rating: {
+			fries: { doneness: 4, taste: 4, cut: 4 },
+			gravy: { taste: 4, viscosity: 3, temperature: 3, amount: 2 },
+			cheeseCurds: { texture: 4, melt: 4, taste: 4, amount: 3 },
+			overall: { toppings: 3, portion: 3, vessel: 2, harmony: 3 },
+		},
+	},
 ];
 
 // Sort poutines by rating (highest first)
