@@ -159,6 +159,20 @@ export const poutines: Poutine[] = [
 			overall: { toppings: 3, portion: 3, vessel: 2, harmony: 3 },
 		},
 	},
+	{
+		name: 'A and W Poutine',
+		description:
+			'A and W poutine is a classic poutine made with their russet potatoes. The cheese curds were overly melty and the portion size is small.',
+		location: 'A and W, St Thomas, ON',
+		location_url:
+			'https://www.google.com/maps/place/A%26W+Canada/@42.778451,-81.177195,792m/data=!3m2!1e3!4b1!4m6!3m5!1s0x882e5e3dabe61ae5:0x9c2b7552aea2f2ff!8m2!3d42.778451!4d-81.177195!16s%2Fg%2F1tql5f07?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D',
+		rating: {
+			fries: { doneness: 3, taste: 4, cut: 3 },
+			gravy: { taste: 4, viscosity: 4, temperature: 3, amount: 3 },
+			cheeseCurds: { texture: 2, melt: 3, taste: 3, amount: 4 },
+			overall: { toppings: 0, portion: 2, vessel: 3, harmony: 3 },
+		},
+	},
 ];
 
 // Sort poutines by rating (highest first)
