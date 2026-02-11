@@ -183,7 +183,7 @@ export const poutines: Poutine[] = [
 		image_url: '/poutines/kfc-matty-matheson-mega-melt-poutine.webp',
 		rating: {
 			fries: { doneness: 3, taste: 3, cut: 2 },
-			gravy: { taste: 4, viscosity: 4, temperature: 4, amount: 4 },
+			gravy: { taste: 5, viscosity: 4, temperature: 4, amount: 4 },
 			cheeseCurds: { texture: 2, melt: 2, taste: 3, amount: 2 },
 			overall: { toppings: 4, portion: 4, vessel: 5, harmony: 4 },
 		},
