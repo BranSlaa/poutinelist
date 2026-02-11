@@ -49,7 +49,7 @@ export const poutines: Poutine[] = [
 	{
 		name: 'Pulled Pork Supreme',
 		description:
-			'The crispy onions were good, but the rest meh. The fries were undercooked and the meat came with too much liquid.',
+			'The crispy onions were good, but the rest meh. The fries were undercooked and the meat came with too much liquid. Despite this the portion size, and the amount of cheese makes up for the deficits.',
 		location: 'Rise to Fries, Barrie, ON',
 		location_url:
 			'https://www.google.com/maps/place/Rise+to+Fries/@44.7489994,-79.7098989,766m/data=!3m2!1e3!4b1!4m6!3m5!1s0x4d2ac7b843e0903f:0x6fa9657e7eb0cbef!8m2!3d44.7489994!4d-79.707324!16s%2Fg%2F11ny26xd8_?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D',
@@ -57,7 +57,7 @@ export const poutines: Poutine[] = [
 			fries: { doneness: 2, taste: 2, cut: 3 },
 			gravy: { taste: 3, viscosity: 3, temperature: 4, amount: 4 },
 			cheeseCurds: { texture: 4, melt: 4, taste: 4, amount: 5 },
-			overall: { toppings: 4, portion: 4, vessel: 3, harmony: 3 },
+			overall: { toppings: 3, portion: 4, vessel: 3, harmony: 2 },
 		},
 	},
 	{
@@ -69,7 +69,7 @@ export const poutines: Poutine[] = [
 		rating: {
 			fries: { doneness: 2, taste: 4, cut: 2 },
 			gravy: { taste: 4, viscosity: 3, temperature: 3, amount: 4 },
-			cheeseCurds: { texture: 3, melt: 4, taste: 4, amount: 3 },
+			cheeseCurds: { texture: 3, melt: 3, taste: 3, amount: 3 },
 			overall: { toppings: 0, portion: 3, vessel: 5, harmony: 4 },
 		},
 	},
@@ -81,7 +81,7 @@ export const poutines: Poutine[] = [
 		location_url:
 			"https://www.google.com/maps/place/Wendy's/@42.7797172,-81.1744258,792m/data=!3m2!1e3!4b1!4m6!3m5!1s0x882e5e23b745e369:0xe311f8e6c0892263!8m2!3d42.7797172!4d-81.1718509!16s%2Fg%2F1tp0f9kj?entry=ttu&g_ep=EgoyMDI1MDkyNC4wIKXMDSoASAFQAw%3D%3D",
 		rating: {
-			fries: { doneness: 2, taste: 3, cut: 3 },
+			fries: { doneness: 2, taste: 3, cut: 2 },
 			gravy: { taste: 3, viscosity: 3, temperature: 3, amount: 3 },
 			cheeseCurds: { texture: 3, melt: 3, taste: 3, amount: 2 },
 			overall: { toppings: 0, portion: 2, vessel: 5, harmony: 4 },
@@ -148,12 +148,12 @@ export const poutines: Poutine[] = [
 		name: "Osmow's Chicken Shwarma Poutine",
 		image_url: '/poutines/osmows-chicken-shwarma-poutine.webp',
 		description:
-			"Classic Osmow's taste, this chicken shwarma poutine is a decent poutine made with chicken shwarma. I would have liked more gravy and less sauce however. If you like Osmow's you'll like this.",
+			"Classic Osmow's taste, this chicken shwarma poutine is a decent poutine made with chicken shwarma. I would have liked more gravy and less sauce however. If you like Osmows you'll like this.",
 		location: "Osmow's, St Thomas, ON",
 		location_url:
 			"https://www.google.com/maps/place/Osmow's+Shawarma/@42.7819682,-81.1772697,1583m/data=!3m2!1e3!4b1!4m6!3m5!1s0x882e5fcad595cc53:0x8fa3d6164cc1f677!8m2!3d42.7819682!4d-81.1746948!16s%2Fg%2F11mj8bs5nr?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D",
 		rating: {
-			fries: { doneness: 4, taste: 4, cut: 4 },
+			fries: { doneness: 3, taste: 4, cut: 4 },
 			gravy: { taste: 4, viscosity: 3, temperature: 3, amount: 2 },
 			cheeseCurds: { texture: 4, melt: 4, taste: 4, amount: 3 },
 			overall: { toppings: 3, portion: 3, vessel: 2, harmony: 3 },
@@ -168,9 +168,24 @@ export const poutines: Poutine[] = [
 			'https://www.google.com/maps/place/A%26W+Canada/@42.778451,-81.177195,792m/data=!3m2!1e3!4b1!4m6!3m5!1s0x882e5e3dabe61ae5:0x9c2b7552aea2f2ff!8m2!3d42.778451!4d-81.177195!16s%2Fg%2F1tql5f07?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D',
 		rating: {
 			fries: { doneness: 3, taste: 4, cut: 3 },
-			gravy: { taste: 4, viscosity: 4, temperature: 3, amount: 3 },
+			gravy: { taste: 4, viscosity: 3, temperature: 3, amount: 3 },
 			cheeseCurds: { texture: 2, melt: 3, taste: 3, amount: 4 },
 			overall: { toppings: 0, portion: 2, vessel: 3, harmony: 3 },
+		},
+	},
+	{
+		name: 'KFC Matty Matheson Mega Melt Poutine',
+		description:
+			'The first promotional poutine on this list. The individual components seemed lacking, but it comes together well. It comes with carmelized onions and popcorn chicken. The carmelized onions were a good addition, and the popcorn chicken was as to be expected. The fries could use to be thicker and crispier but overall it worked. Additionally the cheese curds were small in size making for a very melty poutine as advertised. Advertised as mega, it could have been more but for the $10 price, this was great value.',
+		location: 'KFC, St Thomas, ON',
+		location_url:
+			'https://www.google.com/maps/place/KFC/@42.7789783,-81.4831918,50661m/data=!3m1!1e3!4m10!1m2!2m1!1skfc!3m6!1s0x882e5e3db470274d:0xa026d2da9575d9a7!8m2!3d42.7789783!4d-81.1783212!15sCgNrZmMiA4gBAVoFIgNrZmOSARRmYXN0X2Zvb2RfcmVzdGF1cmFudOABAA!16s%2Fg%2F1hc53t6fy?entry=ttu&g_ep=EgoyMDI2MDIwOC4wIKXMDSoASAFQAw%3D%3D',
+		image_url: '/poutines/kfc-matty-matheson-mega-melt-poutine.webp',
+		rating: {
+			fries: { doneness: 3, taste: 3, cut: 2 },
+			gravy: { taste: 4, viscosity: 4, temperature: 4, amount: 4 },
+			cheeseCurds: { texture: 2, melt: 2, taste: 3, amount: 2 },
+			overall: { toppings: 4, portion: 4, vessel: 5, harmony: 4 },
 		},
 	},
 ];
