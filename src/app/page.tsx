@@ -16,15 +16,24 @@ import { Contact } from '@/components/Contact';
 import { motion } from 'framer-motion';
 import { TopPoutineCard } from '@/components/TopPoutineCard';
 import { PoutineModal } from '@/components/PoutineModal';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { Poutine } from '@/types/poutine';
 
 export default function Home() {
 	const [selectedPoutine, setSelectedPoutine] = useState<Poutine | null>(
-		null
+		null,
 	);
 	const [currentPoutineIndex, setCurrentPoutineIndex] = useState(0);
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [lastUpdated, setLastUpdated] = useState('');
+
+	useEffect(() => {
+		// Access the lastModified property of the document object
+		const dateString = document.lastModified;
+		// Transform the string into a readable Date object
+		const dateObject = new Date(dateString);
+		setLastUpdated(dateObject.toLocaleDateString());
+	}, []);
 
 	const handlePoutineClick = useCallback((poutine: Poutine) => {
 		// Find the index of the clicked poutine in the sorted list
@@ -159,6 +168,10 @@ export default function Home() {
 							poutines={otherPoutines}
 							onRowClick={handlePoutineClick}
 						/>
+						<p className="text-sm text-gray-500 text-center mt-4">
+							Last updated:{' '}
+							<strong>{lastUpdated ? lastUpdated : 'N/A'}</strong>
+						</p>
 					</div>
 				</motion.div>
 			</div>
