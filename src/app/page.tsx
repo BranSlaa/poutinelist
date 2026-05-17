@@ -1,23 +1,24 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { PoutineCard } from '@/components/PoutineCard';
-import { Navigation } from '@/components/Navigation';
-import { Footer } from '@/components/Footer';
+import Image from "next/image";
+import { PoutineCard } from "@/components/PoutineCard";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 import {
 	topPoutine,
 	topPoutines,
 	otherPoutines,
 	sortedPoutines,
-} from '@/data/poutines';
-import { PoutineTable } from '@/components/PoutineTable';
-import Link from 'next/link';
-import { Contact } from '@/components/Contact';
-import { motion } from 'framer-motion';
-import { TopPoutineCard } from '@/components/TopPoutineCard';
-import { PoutineModal } from '@/components/PoutineModal';
-import { useState, useCallback, useEffect } from 'react';
-import { Poutine } from '@/types/poutine';
+} from "@/data/poutines";
+import { PoutineTable } from "@/components/PoutineTable";
+import { PoutineMapSection } from "@/components/PoutineMapSection";
+import Link from "next/link";
+import { Contact } from "@/components/Contact";
+import { motion } from "framer-motion";
+import { TopPoutineCard } from "@/components/TopPoutineCard";
+import { PoutineModal } from "@/components/PoutineModal";
+import { useState, useCallback, useEffect } from "react";
+import { Poutine } from "@/types/poutine";
 
 export default function Home() {
 	const [selectedPoutine, setSelectedPoutine] = useState<Poutine | null>(
@@ -25,7 +26,7 @@ export default function Home() {
 	);
 	const [currentPoutineIndex, setCurrentPoutineIndex] = useState(0);
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [lastUpdated, setLastUpdated] = useState('');
+	const [lastUpdated, setLastUpdated] = useState("");
 
 	useEffect(() => {
 		// Access the lastModified property of the document object
@@ -37,7 +38,7 @@ export default function Home() {
 
 	const handlePoutineClick = useCallback((poutine: Poutine) => {
 		// Find the index of the clicked poutine in the sorted list
-		const index = sortedPoutines.findIndex(p => p.name === poutine.name);
+		const index = sortedPoutines.findIndex((p) => p.name === poutine.name);
 		setCurrentPoutineIndex(index);
 		setSelectedPoutine(poutine);
 		setIsModalOpen(true);
@@ -90,7 +91,7 @@ export default function Home() {
 						</Link>
 					</div>
 					<div className="relative flex items-center justify-center md:mt-4 md:justify-start">
-						<div className=" plaid rounded-full aspect-square w-[400px] max-w-full border-2 border-black"></div>
+						<div className="plaid rounded-full aspect-square w-[400px] max-w-full border-2 border-black"></div>
 						<Image
 							src="/poutine.webp"
 							alt="Poutine bowl"
@@ -169,12 +170,14 @@ export default function Home() {
 							onRowClick={handlePoutineClick}
 						/>
 						<p className="text-sm text-gray-500 text-center mt-4">
-							Last updated:{' '}
-							<strong>{lastUpdated ? lastUpdated : 'N/A'}</strong>
+							Last updated:{" "}
+							<strong>{lastUpdated ? lastUpdated : "N/A"}</strong>
 						</p>
 					</div>
 				</motion.div>
 			</div>
+
+			<PoutineMapSection poutines={sortedPoutines} />
 
 			<div className="relative p-12 tile-bg border-t-4 border-amber-900">
 				<Contact />
